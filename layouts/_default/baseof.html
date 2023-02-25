@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mia Winter">
+    <meta name="description" content="The personal webpage of Mia Winter!">
+
+    <title>{{ .Site.Title }} - {{ .Title }}</title>
+
+    {{ $style := resources.Get "css/index.min.css" | resources.Fingerprint "sha256" }}
+    <link rel="stylesheet"
+          href="{{ $style.Permalink }}"
+          integrity="{{ $style.Data.Integrity }}" />
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!--< Page specific headers >-->
+    {{ block "headers" . }}
+    {{ end }}
+    <!--</ Page specific headers >-->
+</head>
+
+<body>
+</body>
+    <nav class="navbar bg-base-300 text-base-content">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{{ .Site.BaseURL }}">Mia Winter</a>
+        </div>
+
+        <div class="navbar-end">
+            <ul class="menu menu-horizontal max-md:hidden">
+                {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Pre }}<span>{{ .Name }}</span></a></li>
+                {{ end }}
+            </ul>
+            <div class="dropdown dropdown-end md:hidden">
+                <label tabindex="0" class="btn btn-ghost m-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </label>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 w-32">
+                    {{ range .Site.Menus.main }}
+                    <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Pre }}<span>{{ .Name }}</span></a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-6">
+        <div class="mx-3">
+        {{ block "main" . }}
+            Error no Content (500 or something probably)
+        {{ end }}
+        </div>
+    </main>
+
+    <footer class="footer bg-neutral text-neutral-content p-10">
+        <div>
+            <span class="footer-title">Socials</span>
+            <ul>
+                <li>
+                    <a class="link hover:text-primary" rel=me target="blank" href="https://tech.lgbt/@MiaWinter">Mastodon</a>
+                </li>
+                <li>
+                    <a class="link hover:text-primary" rel=me target="blank" href=https://retrospring.net/@MiaWinter>Retrospring</a>
+                </li>
+                <li>
+                    <a class="link hover:text-primary" rel=me target="blank" href="https://en.pronouns.page/@miawinter">pronouns.page</a>
+                </li>
+                <li>
+                    <a class="link hover:text-primary" rel=me target="blank" href="https://github.com/miawinter98">GitHub</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <span class="footer-title">List of good Girls</span>
+            <ul>
+                <li>Lilith</li>
+                <li>Agatha</li>
+                <li>Mika</li>
+                <li>Natty</li>
+                <li>Em</li>
+                <li>Kiru</li>
+                <li>Alexandra</li>
+                <li>Kat</li>
+                <li>Toast</li>
+                <li>Chloe</li>
+                <li>Naomi</li>
+                <li>Ash</li>
+                <li>Alba</li>
+                <li>Helena</li>
+                <li>Elizabeth</li>
+                <li>Andy</li>
+                <li>Mia (per Andys request)</li>
+                <li>fencore</li>
+                <li>Adora</li>
+                <li>Sylvia</li>
+                <li>Alexa</li>
+                <li>Bridget</li>
+                <li>Cleo</li>
+                <li>Liana</li>
+                <li>Èlia</li>
+                <li>Ruby</li>
+                <li>julia</li>
+                <li>trissc̈hen</li>
+                <li>&nbsp;</li>
+                <li><em>This list is uncomplete,<br>you can help to expand it</em></li>
+            </ul>
+        </div>
+        <div>
+            <span class="footer-title">List of good thems</span>
+            <ul>
+                <li>Jo the cutey</li>
+                <li>Lewdum</li>
+                <li>tends</li>
+                <li>A Stream of Sand</li>
+                <li>&nbsp;</li>
+                <li><em>This list is uncomplete,<br>you can help to expand it</em></li>
+            </ul>
+        </div>
+    </footer>
+</html>

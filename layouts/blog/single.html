@@ -1,0 +1,17 @@
+{{ define "headers" }}
+{{ template "_internal/opengraph.html" . }}
+{{ end }}
+{{ define "main" }}
+
+<section>
+    <h1 class="text-5xl">{{ .Title }}</h1>
+    <small class="block my-3">
+        Published on {{ .Date }}<br>
+        By {{ index .Params.Author 0 }}
+    </small>
+    <div class="prose lg:prose-xl max-w-none">
+        {{ .Content }}
+    </div>
+</section>
+
+{{ end }}

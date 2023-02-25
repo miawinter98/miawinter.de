@@ -1,0 +1,135 @@
+{{ define "main" }}
+
+<section class="section">
+    <article class="content">
+        <h1 class="text-5xl mb-6 has-text-primary">{{ .Title }}</h1>
+        <div class="prose">
+            {{ .Content }}
+        </div>
+    </article>
+</section>
+
+<h2 class="text-5xl my-6">About Me</h2>
+<div class="flex max-lg:flex-col gap-3">
+    <div class="card bg-base-200 lg:w-1/2 text-base-content shadow-xl">
+        <section class="card-body">
+            <h2 class="card-title">Mia Winter</h2>
+            <dl class="grid grid-cols-2 space-y-3">
+                <dt>Name</dt>
+                <dd>Mia Winter</dd>
+                <dt>Birth</dt>
+                <dd>1998-08-05</dd>
+                <dt>Favorite Colors</dt>
+                <dd>Pink, Yellow (it makes me happy), and sometimes blue</dd>
+                <dt>Hobbys</dt>
+                <dd>Programming, Video Editing, Watching Movies, Baking, Food</dd>
+                <dt>Persona</dt>
+                <dd>Extrovert, Happy, Friendly, Cuddly</dd>
+                <dt>Labels</dt>
+                <dd>Trans, Saphic, Grayasexual, Poly</dd>
+            </dl>
+        </section>
+    </div>
+    <div class="card bg-base-200 lg:w-1/2 text-base-content shadow-xl">
+        <section class="card-body">
+            <h2 class="card-title">Interests</h2>
+            <ul class="space-y-3">
+                <li>
+                    <div tabindex="0" class="collapse">
+                        <div class="collapse-title p-0 min-h-0">
+                            My Girlfriend - I love her
+                        </div>
+                        <div class="collapse-content m-0 p-0">
+                            Natty - She is cute and we have vibes
+                        </div>
+                    </div>
+                </li>
+                <li>Drawing - but I am bad at it</li>
+                <li>Politics - because who needs to be happy all the time</li>
+                <li>Black Holes - How can you not love them? They are awesome</li>
+                <li>Tropes (Writing, Movie, ...) - They are fun</li>
+                <li>Anime - go figure</li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<h2 class="text-5xl my-6">Skills</h2>
+<div class="flex max-lg:flex-col gap-3">
+    <div class="card bg-base-200 lg:w-1/2 text-base-content shadow-xl">
+        <section class="card-body">
+            <h2 class="card-title">Languages</h2>
+            <ul class="space-y-3">
+                <li>The C Family (C, C++, java, C#)</li>
+                <li>C#/.NET Windows Presentation Foundation (WPF)</li>
+                <li>C#/.NET Entity Framework (6 and Core)</li>
+                <li>C#/.NET Asp.NET Core</li>
+                <li>Html, CSS, Javascript (made this Site after all)</li>
+                <li>Python</li>
+                <li>Lua</li>
+            </ul>
+        </section>
+    </div>
+    <div class="card bg-base-200 lg:w-1/2 text-base-content shadow-xl">
+        <section class="card-body">
+            <h2 class="card-title">Human Languages</h2>
+            <ul class="space-y-3">
+                <li>German - native</li>
+                <li>English - C2.1</li>
+                <li>Japanese - A1.1</li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<h2 class="text-5xl my-6">Projects</h2>
+
+<article class="hero h-96 mb-6 bg-base-200">
+    <div class="hero-content text-center max-w-full overflow-x-hidden">
+        <div class="max-w-md">
+            <h2 class="text-5xl max-md:text-3xl font-bold">miawinter.de</h2>
+            <p class="pt-6">
+                Made with:
+            </p>
+            <ul class="pb-6 grid grid-cols-2 space-y-1">
+                <li><a class="link" target="_blank" href="https://gohugo.io/">hugo</a></li>
+                <li><a class="link" target="_blank" href="https://postcss.org/">PostCSS</a></li>
+                <li><a class="link" target="_blank" href="https://github.com/postcss/postcss-cli/">PostCSS CLI</a></li>
+                <li><a class="link" target="_blank" href="https://tailwindcss.com/">tailwindcss</a></li>
+                <li><a class="link" target="_blank" href="https://github.com/tailwindlabs/tailwindcss-typography/">tailwind typography</a></li>
+                <li><a class="link" target="_blank" href="https://daisyui.com/">daisyUI</a></li>
+                <li><a class="link" target="_blank" href="https://heroicons.com/">heroicons</a></li>
+                <li><a class="link" target="_blank" href="https://cssnano.co/">cssnano</a></li>
+                <li><a class="link" target="_blank" href="https://github.com/postcss/autoprefixer/">autoprefixer</a></li>
+            </ul>
+            <a class="btn btn-secondary rounded-none" href="https://miawinter.de/">Go to Site</a>
+        </div>
+    </div>
+</article>
+
+<article class="hero h-96 mb-6 bg-base-200">
+    <div class="hero-content text-center max-w-full overflow-x-hidden">
+        <div class="max-w-md">
+            <h2 class="text-5xl max-md:text-3xl font-bold">Mastograph</h2>
+            <p class="p-6">
+                Blazor Webassembly App (and PWA) that better visualizes Threads on Mastodon (no Login required)
+            </p>
+            <a class="btn btn-secondary rounded-none" href="https://mastograph.miawinter.de/">Go to Site</a>
+        </div>
+    </div>
+</article>
+
+<article class="hero h-96 mb-6 bg-base-200" style="background-image: url(https://winter-software.com/images/main-hero.jpg)">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-neutral-content max-w-full overflow-x-hidden">
+        <div class="max-w-md">
+            <h2 class="text-5xl max-md:text-3xl font-bold">winter&#8209;software.com</h2>
+            <p class="p-6">
+                Under Construction
+            </p>
+            <a class="btn btn-secondary rounded-none" href="https://winter-software.com/">Go to Site</a>
+        </div>
+    </div>
+</article>
+
+{{ end }}

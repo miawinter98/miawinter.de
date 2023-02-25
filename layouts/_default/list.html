@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div>
+    <h1 class="text-5xl my-6">{{.Title}}</h1>
+    <div class="prose xl:prose-xl max-w-none">
+        {{ .Content }}
+    </div>
+    {{ range .Pages }}
+    <article class="hero bg-neutral flex my-3">
+        <div class="hero-content text-primary-neutral overflow-x-hidden">
+            <a class="hover:link" href="{{ .Permalink }}">
+                <h2 class="text-3xl w-full">{{ .Title }}</h2>
+                <small>{{ .Date }}</small>
+                <p class="my-3">{{ .Summary }}</p>
+            </a>
+        </div>
+    </article>
+    {{ end }}
+</div>
+{{ end }}

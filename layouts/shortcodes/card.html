@@ -1,0 +1,16 @@
+<div class="column is-half-tablet is-one-third-desktop">
+    <article class="card">
+        {{ with .Get "title" }}
+        <div class="card-header rainbow-box">
+            <div class="card-header-title">
+                <h1 class="title has-text-white">{{ . }}</h1>
+            </div>
+        </div>
+        {{ end }}
+        <div class="card-content has-background-light">
+            <div class="content">
+                {{ .Inner | markdownify }}
+            </div>
+        </div>
+    </article>
+</div>
