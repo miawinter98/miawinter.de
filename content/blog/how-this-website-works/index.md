@@ -154,3 +154,7 @@ than any CRM, it's nice, small and very performat, and I can modify it easily.
 
 Maybe you want to do like me, maybe you just buy a webserver with concrete, maybe you will use WordPress (Please don't I beg you), anyway,
 hosting a website is pretty easy in this day and age, so don't be scared, learning it is fun!
+
+## Update 2023-02-25
+
+I put up my Site on GitHub! You can now have a look at it [here](https://github.com/miawinter98/miawinter.de)
