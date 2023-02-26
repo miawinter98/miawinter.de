@@ -9,12 +9,12 @@
         Published on {{ .Date }}<br>
         By {{ index .Params.Author 0 }}
     </small>
-    <div class="flex gap-1">
+    <div class="flex flex-wrap gap-1">
         {{ range (.GetTerms "categories") }}
             <a class="badge badge-lg badge-primary rounded-none hover:badge-outline hover:-translate-x-0.5 hover:-translate-y-0.5" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
         {{ end }}
     </div>
-    <div class="flex gap-1 my-3">
+    <div class="flex flex-wrap gap-1 my-3">
         {{ range (.GetTerms "tags") }}
             <a class="badge badge-info badge-outline rounded-none hover:-translate-x-1 hover:-translate-y-1" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
         {{ end }}
