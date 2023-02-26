@@ -3,6 +3,15 @@ title: "How This Website Works"
 date: 2023-02-19T09:54:57+01:00
 draft: false
 description: "My first blog, talking about how I made my Website. This includes how I host it, how the content is generated and how I styled it."
+categories:
+- tech
+- personal
+tags:
+- webdev
+- nginx
+- docker
+- hugo
+- tailwind
 author:
 - "Mia Winter"
 ---
