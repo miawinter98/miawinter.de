@@ -5,12 +5,24 @@
         {{ .Content }}
     </div>
     {{ range .Pages }}
-    <article class="hero bg-neutral flex my-3">
-        <div class="hero-content text-primary-neutral overflow-x-hidden">
-            <a class="hover:link" href="{{ .Permalink }}">
-                <h2 class="text-3xl w-full">{{ .Title }}</h2>
-                <small>{{ .Date }}</small>
-                <p class="my-3">{{ .Summary }}</p>
+    <article class="hero bg-neutral flex my-3 hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform">
+        <div class="hero-content overflow-x-hidden text-primary-neutral">
+            <a class="" href="{{ .Permalink }}">
+                <div class="flex flex-col">
+                    <h2 class="text-3xl w-full">{{ .Title }}</h2>
+                    <small>{{ .Date }}</small>
+                    <div class="flex mt-1 gap-1">
+                        {{ range (.GetTerms "categories") }}
+                            <a class="badge badge-lg badge-primary rounded-none hover:badge-outline hover:-translate-x-0.5 hover:-translate-y-0.5" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                        {{ end }}
+                    </div>
+                    <p class="my-3">{{ .Summary }}</p>
+                    <div class="flex gap-1 my-3 justify-end">
+                        {{ range (.GetTerms "tags") }}
+                            <a class="badge badge-outline rounded-none hover:-translate-x-1 hover:-translate-y-1" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                        {{ end }}
+                    </div>
+                </div>
             </a>
         </div>
     </article>

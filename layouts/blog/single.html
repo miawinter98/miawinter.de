@@ -4,11 +4,21 @@
 {{ define "main" }}
 
 <section>
-    <h1 class="text-5xl">{{ .Title }}</h1>
+    <h1 class="text-5xl font-bold text-primary">{{ .Title }}</h1>
     <small class="block my-3">
         Published on {{ .Date }}<br>
         By {{ index .Params.Author 0 }}
     </small>
+    <div class="flex gap-1">
+        {{ range (.GetTerms "categories") }}
+            <a class="badge badge-lg badge-primary rounded-none hover:badge-outline hover:-translate-x-0.5 hover:-translate-y-0.5" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+    </div>
+    <div class="flex gap-1 my-3">
+        {{ range (.GetTerms "tags") }}
+            <a class="badge badge-info badge-outline rounded-none hover:-translate-x-1 hover:-translate-y-1" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+    </div>
     <div class="prose lg:prose-xl max-w-none">
         {{ .Content }}
     </div>
