@@ -37,4 +37,4 @@ jobs:
                 HUGO_ENV: production
             run: hugo --gc --minify
           - name: Deploy with rsync
-            run: rsync -atv --delete --progress --checksum --whole-file -e ssh public_html/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/todo
+            run: rsync -atv --delete --progress --checksum --whole-file -e ssh . ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:~/html/miawinter-de
