@@ -21,6 +21,7 @@ jobs:
             run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
           - name: Install ssh key
             run: |
+                eval "$(ssh-agent)"
                 sudo echo "${{ secrets.SSH_PRIVATE_KEY }}" | sudo tr -d '\r' | sudo ssh-add -
                 sudo mkdir -p ~/.ssh
                 sudo chmod 700 ~/.ssh
