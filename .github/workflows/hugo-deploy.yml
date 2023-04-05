@@ -21,7 +21,7 @@ jobs:
             run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
           - name: Install rsync and ssh key
             run: |
-                apk update && apk add openssh-client rsync
+                apt update && apt add openssh-client rsync
                 eval $(ssh-agent -s)
                 echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
                 mkdir -p ~/.ssh
