@@ -21,12 +21,12 @@ jobs:
             run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
           - name: Install rsync and ssh key
             run: |
-                apt update && apt add openssh-client rsync
+                sudo apt update && sudo apt add openssh-client rsync
                 eval $(ssh-agent -s)
-                echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
-                mkdir -p ~/.ssh
-                chmod 700 ~/.ssh
-                echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/known_hosts
+                sudo echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
+                sudo mkdir -p ~/.ssh
+                sudo chmod 700 ~/.ssh
+                sudo echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/known_hosts
           - name: Build with Hugo
             env:
                 # For maximum backward compatibility with Hugo modules
