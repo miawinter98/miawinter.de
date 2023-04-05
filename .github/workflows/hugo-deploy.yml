@@ -22,10 +22,11 @@ jobs:
             run: sudo snap install dart-sass-embedded
           - name: Install Node.js dependencies
             run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-          - name: Install ssh key
+          - uses: webfactory/ssh-agent@v0.7.0
+                with:
+                    ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          - name: Add known host
             run: |
-                sudo ssh-agent sh
-                sudo echo "${{ secrets.SSH_PRIVATE_KEY }}" | sudo tr -d '\r' | sudo ssh-add -
                 sudo mkdir -p ~/.ssh
                 sudo chmod 700 ~/.ssh
                 sudo echo "${{ secrets.KNOWN_HOST_KEY }}" > ~/.ssh/known_hosts
@@ -36,4 +37,4 @@ jobs:
                 HUGO_ENV: production
             run: hugo --gc --minify
           - name: Deploy with rsync
-            run: rsync -atv --delete --progress --checksum --whole-file public_html/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/todo
+            run: rsync -atv --delete --progress --checksum --whole-file -e ssh public_html/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/todo
