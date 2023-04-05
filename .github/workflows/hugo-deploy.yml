@@ -19,13 +19,12 @@ jobs:
             run: sudo snap install dart-sass-embedded
           - name: Install Node.js dependencies
             run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-          - name: Install rsync and ssh key
+          - name: Install ssh key
             run: |
-                eval $(ssh-agent -s)
                 sudo echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add -
                 sudo mkdir -p ~/.ssh
                 sudo chmod 700 ~/.ssh
-                sudo echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/known_hosts
+                sudo echo "${{ secrets.KNOWN_HOST_KEY }}" > ~/.ssh/known_hosts
           - name: Build with Hugo
             env:
                 # For maximum backward compatibility with Hugo modules
