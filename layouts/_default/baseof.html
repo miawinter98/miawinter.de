@@ -23,38 +23,10 @@
 
 <body>
 </body>
-    <nav class="navbar bg-base-300 text-base-content">
-        <div class="navbar-start">
-            <a class="navbar-item" href="{{ .Site.BaseURL }}">Mia Winter</a>
-        </div>
-
-        <div class="navbar-end">
-            <ul class="menu menu-horizontal max-md:hidden">
-                {{ range .Site.Menus.main }}
-                <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Pre }}<span>{{ .Name }}</span></a></li>
-                {{ end }}
-            </ul>
-            <div class="dropdown dropdown-end md:hidden">
-                <label tabindex="0" class="btn btn-ghost m-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </label>
-                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 w-32">
-                    {{ range .Site.Menus.main }}
-                    <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Pre }}<span>{{ .Name }}</span></a></li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container mx-auto py-6">
-        <div class="mx-3">
+    <main class="">
         {{ block "main" . }}
             Error no Content (500 or something probably)
         {{ end }}
-        </div>
     </main>
 
     <footer class="footer bg-neutral text-neutral-content p-10">
@@ -107,7 +79,7 @@
                 <li>julia</li>
                 <li>trissc̈hen</li>
                 <li>&nbsp;</li>
-                <li><em>This list is uncomplete,<br>you can help to expand it</em></li>
+                <li><em>This list is incomplete,<br>you can help to expand it</em></li>
             </ul>
         </div>
         <div>
@@ -122,4 +94,8 @@
             </ul>
         </div>
     </footer>
+    <div class="w-full flex flex-col justify-center text-center bg-neutral text-neutral-content h-24">
+        <span class="">Copyright &copy; 2023 Mia Winter</span>
+        <a class="link hover:text-primary" href="/privacy">Privacy</a>
+    </div>
 </html>

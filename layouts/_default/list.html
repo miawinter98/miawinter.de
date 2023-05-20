@@ -1,32 +1,42 @@
 {{ define "main" }}
-<div>
-    <h1 class="text-5xl my-6">{{.Title}}</h1>
-    <div class="prose xl:prose-xl max-w-none">
-        {{ .Content }}
-    </div>
-    {{ range .Pages }}
-    <article class="hero bg-neutral flex my-3 hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform">
-        <div class="hero-content overflow-x-hidden text-primary-neutral w-full">
-            <div class="flex flex-wrap flex-col w-full">
-                <h2 class="text-3xl w-full">{{ .Title }}</h2>
-                <small>{{ .Date }}</small>
-                <div class="flex mt-1 gap-1">
-                    {{ range (.GetTerms "categories") }}
-                        <a class="badge badge-lg badge-primary rounded-none hover:badge-outline hover:-translate-x-0.5 hover:-translate-y-0.5" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-                    {{ end }}
-                </div>
-                <a class="hover:link" href="{{ .Permalink }}">
-                    <p class="my-3">{{ .Summary }}</p>
-                    <p><small><strong>Read More...</strong></small></p>
-                </a>
-                <div class="flex flex-wrap gap-1 my-3 justify-end">
-                    {{ range (.GetTerms "tags") }}
-                        <a class="badge badge-outline rounded-none hover:-translate-x-1 hover:-translate-y-1" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-                    {{ end }}
+
+<div class="p-8">
+    <div class="container mx-auto">
+        <div class="breadcrumbs mb-6">
+            <ul>
+                <li><a href="/">Homepage</a></li>
+                <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+            </ul>
+        </div>
+        <h1 class="text-5xl my-6">{{.Title}}</h1>
+        <div class="prose xl:prose-xl max-w-none">
+            {{ .Content }}
+        </div>
+        {{ range .Pages }}
+        <article class="hero bg-neutral flex my-3 hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform">
+            <div class="hero-content overflow-x-hidden text-primary-neutral w-full max-w-none">
+                <div class="flex flex-wrap flex-col w-full">
+                    <h2 class="text-3xl w-full">{{ .Title }}</h2>
+                    <small>{{ .Date }}</small>
+                    <div class="flex mt-1 gap-1">
+                        {{ range (.GetTerms "categories") }}
+                            <a class="badge badge-lg badge-primary rounded-none hover:badge-outline hover:-translate-x-0.5 hover:-translate-y-0.5" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                        {{ end }}
+                    </div>
+                    <a class="hover:link" href="{{ .Permalink }}">
+                        <p class="my-3">{{ .Summary }}</p>
+                        <p><small><strong>Read More...</strong></small></p>
+                    </a>
+                    <div class="flex flex-wrap gap-1 my-3 justify-end">
+                        {{ range (.GetTerms "tags") }}
+                            <a class="badge badge-outline rounded-none hover:-translate-x-1 hover:-translate-y-1" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                        {{ end }}
+                    </div>
                 </div>
             </div>
-        </div>
-    </article>
-    {{ end }}
+        </article>
+        {{ end }}
+    </div>
 </div>
+
 {{ end }}

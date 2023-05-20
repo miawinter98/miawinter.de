@@ -4,4 +4,6 @@ date: 2022-11-20T13:02:09+01:00
 draft: false
 ---
 
-Welcome to my Website. I made a Website because I do something with Media and IT, so I need a Website.
+Hello and Welcome to my Website!
+
+Here you gonna find my Projects that I'm proud of, some of my skills and also my blog!

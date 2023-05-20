@@ -5,3 +5,16 @@
 .prose {
     @apply prose-headings:font-normal;
 }
+
+@layer base {
+
+}
+
+@layer components {
+    .feature {
+        @apply p-8 lg:h-[32rem]
+    }
+    .feature-content {
+        @apply flex flex-col lg:flex-row gap-6 container mx-auto h-full
+    }
+}
