@@ -13,7 +13,7 @@ module.exports = {
         logs: false,
         themes: [
             {
-                mytheme: {
+                light: {
                     "primary": "#b90068",
                     "primary-content": "#ffffff",
                     "secondary": "#74565f",
@@ -32,6 +32,27 @@ module.exports = {
                     "error": "#F87272",
                 },
             },
+            {
+                dark: {
+                    "primary": "#b90068",
+                    "primary-content": "#f2f2f2",
+                    "secondary": "#C70071",
+                    "secondary-content": "#f2f2f2",
+                    "accent": "#7d5636",
+                    "accent-content": "#f2f2f2",
+
+                    "neutral": "#D146B5",
+                    "neutral-content": "#f2f2f2",
+                    "base-100": "#400E45",
+                    "base-content": "#f2f2f2",
+                    "base-200": "#881D91",
+
+                    "info": "#3ABFF8",
+                    "success": "#36D399",
+                    "warning": "#FBBD23",
+                    "error": "#F87272",
+                }
+            }
         ]
     }
 }
