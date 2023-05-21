@@ -5,9 +5,11 @@
 .prose {
     @apply prose-headings:font-normal;
 }
+.footer-title {
+    @apply opacity-80
+}
 
 @layer base {
-
 }
 
 @layer components {
