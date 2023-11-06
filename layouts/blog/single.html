@@ -5,36 +5,45 @@
 
 <div class="p-8">
     <section class="container mx-auto">
-        <div class="breadcrumbs">
+        <div class="breadcrumbs mb-6">
             <ul>
                 <li><a href="/">Homepage</a></li>
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="{{.Permalink}}">{{.Title}}</a></li>
             </ul>
         </div>
-        <a class="btn rounded-full my-6" href="/blog">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-            Back
-        </a>
-        <h1 class="text-5xl font-bold text-primary">{{ .Title }}</h1>
-        <small class="block my-3">
-            Published on {{ .Date }}<br>
-            By {{ index .Params.Author 0 }}
-        </small>
         <div class="flex flex-wrap gap-1">
             {{ range (.GetTerms "categories") }}
-                <a class="badge badge-lg badge-primary rounded-none hover:badge-outline hover:-translate-x-0.5 hover:-translate-y-0.5" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                <a class="badge badge-lg badge-primary rounded-sm hover:badge-secondary" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
             {{ end }}
         </div>
         <div class="flex flex-wrap gap-1 my-3">
             {{ range (.GetTerms "tags") }}
-                <a class="badge badge-info badge-outline rounded-none hover:-translate-x-1 hover:-translate-y-1" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                <a class="badge badge-outline hover:badge-ghost rounded-sm" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
             {{ end }}
         </div>
+        <h1 class="text-5xl font-bold text-primary">{{ .Title }}</h1>
+        <small class="block my-3">
+            Published on {{ .Date | time.Format "02.01.2006" }}<br>
+            By {{ index .Params.Author 0 }}
+        </small>
         <div class="prose lg:prose-xl max-w-none">
             {{ .Content }}
+        </div>
+
+        <div class="flex justify-between my-6 relative">
+            <a class="btn rounded-full" href="/blog">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+                Back
+            </a>
+            <button type="button" class="btn btn-secondary rounded-full fixed lg:static right-3 bottom-6" onclick="window.scrollTo({top: 0, left: 0, behaviour: 'smooth'})">
+                Back to top
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+                </svg>
+            </button>
         </div>
     </section>
 </div>
