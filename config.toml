@@ -19,11 +19,6 @@ title = 'Mia Winter'
     name = "PGP"
     url = "/pgp"
     weight = -51
-[[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    url = "/blog"
-    weight = -75
 
 [markup]
   [markup.goldmark]
