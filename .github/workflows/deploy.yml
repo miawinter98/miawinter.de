@@ -23,4 +23,4 @@ jobs:
                 sudo chmod 700 ~/.ssh
                 sudo echo "${{ secrets.KNOWN_HOST_KEY }}" > ~/.ssh/known_hosts
           - name: Deploy with rsync
-            run: rsync -atv --delete --progress --checksum --whole-file --relative -e ssh index.html style.min.css img/. files/. ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/docker/websites/miawinter.de
+            run: rsync -atv --delete --progress --checksum --whole-file --relative -e ssh index.html style.min.css favicon.png img/. files/. ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/docker/websites/miawinter.de
