@@ -2,6 +2,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 module.exports = {
+    darkMode: ['selector', '[data-theme="dark"]'],
     content: ["index.html"],
     theme: {
         extend: {
