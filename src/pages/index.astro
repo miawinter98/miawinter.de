@@ -185,14 +185,18 @@ import pgp from "./pgp"
 </Layout>
 
 <script>
-	document.getElementById("ThemeToggle").addEventListener("click", function (){
-		let theme = document.documentElement.dataset.theme;
-		if (theme === "dark") {
-			document.documentElement.dataset.theme = "light";
-			localStorage.theme = "light";
-		} else {
-			document.documentElement.dataset.theme = "dark";
-			localStorage.theme = "dark";
-		}
-	})
+	const toggle = document.getElementById("ThemeToggle");
+	
+	if (toggle) {
+		toggle.addEventListener("click", function (){
+			let theme = document.documentElement.dataset.theme;
+			if (theme === "dark") {
+				document.documentElement.dataset.theme = "light";
+				localStorage.theme = "light";
+			} else {
+				document.documentElement.dataset.theme = "dark";
+				localStorage.theme = "dark";
+			}
+		})
+	}
 </script>
