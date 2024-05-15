@@ -1,0 +1,12 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section class="transition-colors ease-linear duration-300 bg-base-200 p-4 rounded-sm">
+    <h2 class="text-2xl">{title}</h2>
+    <slot />
+</section>

@@ -1,17 +1,20 @@
 {
-    "devDependencies": {
-        "autoprefixer": "^10.4.16",
-        "cssnano": "^6.0.1",
-        "daisyui": "^3.9.4",
-        "postcss": "^8.4.31",
-        "postcss-cli": "^10.1.0",
-        "postcss-import": "^16.1.0",
-        "tailwindcss": "^3.3.5"
-    },
-    "scripts": {
-        "css:build": "postcss -o style.min.css style.css"
-    },
-    "dependencies": {
-        "@fontsource/josefin-sans": "^5.0.20"
-    }
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/josefin-sans": "^5.0.20",
+    "astro": "^4.8.3",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  }
 }

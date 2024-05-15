@@ -1,0 +1,33 @@
+---
+import "@fontsource/josefin-sans";
+import "./base.css"
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+
+		<meta name="author" content="Mia Winter">
+		<meta name="description" content="The personal webpage of Mia Rose Winter!">
+
+		<link rel="icon" type="image/png" href="favicon.png">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<script is:inline>
+		document.documentElement.dataset.theme = ("theme" in localStorage) ?
+			localStorage.theme :
+			(window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light");
+	</script>
+	<body class="transition-colors ease-linear duration-300">
+		<slot />
+	</body>
+</html>
