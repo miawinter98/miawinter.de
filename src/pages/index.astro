@@ -3,8 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ProjectCard from "../components/ProjectCard.astro";
 import SidebarCard from "../components/SidebarCard.astro";
 import CoolButton from "../components/CoolButton.astro";
-
-import pgp from "./pgp"
+import PgpKey from "../components/PgpKey.astro";
 ---
 
 <Layout title="Mia Rose Winter">
@@ -174,7 +173,7 @@ import pgp from "./pgp"
 					</summary>
 
 					<div class="text-neutral-content p-2 overflow-x-auto bg-neutral border border-current rounded-sm">
-						<code class="whitespace-pre">{pgp}</code>
+						<PgpKey />
 					</div>
 				</details>
 			</SidebarCard>
