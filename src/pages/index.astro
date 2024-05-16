@@ -1,14 +1,20 @@
 ---
+import { Picture } from 'astro:assets';
+
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from "../components/ProjectCard.astro";
 import SidebarCard from "../components/SidebarCard.astro";
 import CoolButton from "../components/CoolButton.astro";
 import PgpKey from "../components/PgpKey.astro";
+
+import ProfilePicture from "./_profile_picture.png"
 ---
 
 <Layout title="Mia Rose Winter">
 	<header class="transition-colors ease-linear duration-300 p-4 md:px-12 bg-neutral text-neutral-content flex flex-col items-center md:flex-row gap-8 relative">
-		<img class="w-40" src="img/profile_picture.png" alt="" >
+		<Picture class="w-40" src={ProfilePicture}
+				 formats={["png", "jpg", "webp"]}
+				 alt="" />
 		<div>
 			<h1 class="text-3xl font-bold">Mia Rose Winter</h1>
 			<p class="font-bold my-1">She/Her</p>
@@ -35,14 +41,14 @@ import PgpKey from "../components/PgpKey.astro";
 				title="Wave"
 				tagLine="The Collaborative Open-Source Blogging Engine"
 				description="Stay afloat in a current of Information!"
-				image="img/heros/wave-social.png">
+				image="/src/assets/wave-social.png">
 				<CoolButton label="Project Repository" url="https://github.com/miawinter98/Wave" />
 			</ProjectCard>
 			<ProjectCard
 				title="Wave Alpha"
 				tagLine="My Blogging Site (running Wave)"
 				description="Lots of random articles there"
-				image="img/heros/wave.png">
+				image="/src/assets/wave.png">
 				<CoolButton label="Start Reading"
 							url="https://blog.winter-software.com"
 							favicon="https://blog.winter-software.com/favicon-32x32.png" />
@@ -51,28 +57,28 @@ import PgpKey from "../components/PgpKey.astro";
 				title="Just Short It!"
 				tagLine="The most KISS single-user URL shortener there is"
 				description="Link shortening, nothing more, nothing less"
-				image="img/heros/just-short-it.png">
+				image="/src/assets/just-short-it.png">
 				<CoolButton label="Project Repository" url="https://github.com/miawinter98/just-short-it" />
 			</ProjectCard>
 			<ProjectCard
 				title="miawinter.de"
 				tagLine="This site"
 				description="Yep"
-				image="img/heros/miawinter.de.png">
+				image="/src/assets/miawinter.de.png">
 				<CoolButton label="Recursion Error" url="https://miawinter.de" favicon="favicon.png" target="_self" />
 			</ProjectCard>
 			<ProjectCard
 				title="fedi-chronicles.org"
 				tagLine="If you know the fediverse, this might interest you"
 				description="If not, it still looks cool"
-				image="img/heros/fedi-chronicles.org.png">
+				image="/src/assets/fedi-chronicles.org.png">
 				<CoolButton label="Go To Site" url="https://fedi-chronicles.org" favicon="https://fedi-chronicles.org/favicon-32x32.png" />
 			</ProjectCard>
 			<ProjectCard
 				title="GeeksList"
 				tagLine="Keep track of your favorite shows and movies"
 				description="Kinda wanna rework that one in Angular"
-				image="img/heros/geekslist.png">
+				image="/src/assets/geekslist.png">
 				<CoolButton label="Go To Site" url="https://geekslist.de" favicon="https://geekslist.de/favicon-32x32.png" />
 			</ProjectCard>
 		</div>
