@@ -40,7 +40,8 @@ const config: Config = {
             }
         },
         fontFamily: {
-            sans: ["Josefin Sans", ...defaultTheme.fontFamily.sans]
+            sans: ["Josefin Sans", ...defaultTheme.fontFamily.sans],
+            old: ["serif"]
         }
     },
     plugins: [],
