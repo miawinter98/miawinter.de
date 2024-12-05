@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import { Image } from 'astro:assets';
 
 import ProjectCard from "../components/ProjectCard.astro";
 import SidebarCard from "../components/SidebarCard.astro";
@@ -10,9 +10,7 @@ import ProfilePicture from "../assets/profile_picture.png"
 ---
 
 <header class="transition-colors ease-linear duration-300 p-4 md:px-12 bg-neutral text-neutral-content flex flex-col items-center md:flex-row gap-8 relative">
-    <Picture class="w-40" src={ProfilePicture}
-             formats={["png", "jpg", "webp"]}
-             alt="" />
+    <Image class="w-40" src={ProfilePicture} widths={[600, 200, ProfilePicture.width]} alt="" loading="eager" />
     <div>
         <h1 class="text-3xl font-bold">Mia Rose Winter</h1>
         <p class="font-bold my-1">She/Her</p>
@@ -37,37 +35,38 @@ import ProfilePicture from "../assets/profile_picture.png"
 <main class="transition-colors ease-linear duration-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-6 px-4 md:px-12 gap-8">
     <div class="flex flex-col gap-4 lg:col-span-2">
         <h2 class="text-2xl mb-3">Projects</h2>
-        <ProjectCard
+        <ProjectCard eagerLoading={true}
                 title="Wave"
                 tagLine="The Collaborative Open-Source Blogging Engine"
                 description="Stay afloat in a current of Information!"
                 image="/src/assets/wave-social.png">
             <CoolButton label="Project Repository" url="https://github.com/miawinter98/Wave" />
         </ProjectCard>
-        <ProjectCard
+        <ProjectCard eagerLoading={true}
                 title="Wave Alpha"
                 tagLine="My Blogging Site (running Wave)"
                 description="Lots of random articles there"
                 image="/src/assets/wave.png">
             <CoolButton label="Start Reading"
                         url="https://blog.winter-software.com"
-                        favicon="https://blog.winter-software.com/dist/favicon-96x96.png" />
+                        favicon="https://blog.winter-software.com/dist/favicon-96x96.png"
+                        eagerLoading={true} />
         </ProjectCard>
-        <ProjectCard
+        <ProjectCard eagerLoading={true}
                 title="Just Short It!"
                 tagLine="The most KISS single-user URL shortener there is"
                 description="Link shortening, nothing more, nothing less"
                 image="/src/assets/just-short-it.png">
             <CoolButton label="Project Repository" url="https://github.com/miawinter98/just-short-it" />
         </ProjectCard>
-        <ProjectCard
+        <ProjectCard eagerLoading={true}
                 title="miawinter.de"
                 tagLine="This site"
                 description="Yep"
                 image="/src/assets/miawinter.de.png">
-            <CoolButton label="Recursion Error" url="https://miawinter.de" favicon="favicon.png" target="_self" />
+            <CoolButton label="Recursion Error" url="https://miawinter.de" favicon="https://miawinter.de/favicon.png" target="_self" />
         </ProjectCard>
-        <ProjectCard
+        <ProjectCard eagerLoading={true}
                 title="winter-software.com"
                 tagLine="My cool businessy business site"
                 description="Very very business"
@@ -86,7 +85,7 @@ import ProfilePicture from "../assets/profile_picture.png"
                 tagLine="Keep track of your favorite shows and movies"
                 description="Kinda wanna rework that one in Angular"
                 image="/src/assets/geekslist.png">
-            <CoolButton label="Go To Site" url="https://geekslist.de" favicon="https://geekslist.de/favicon-32x32.png" />
+            <CoolButton label="Go To Site" url="https://geekslist.de" favicon="https://geekslist.de/favicon.svg" />
         </ProjectCard>
     </div>
     <div class="flex flex-col gap-4">
@@ -120,28 +119,28 @@ import ProfilePicture from "../assets/profile_picture.png"
                 </li>
                 <li>
                     <a class="flex gap-2 hover:text-purple-400" rel="me" target="_blank" href="https://blog.winter-software.com/profile/546feabb-859f-4f75-afc6-c4b0edc626a9">
-                        <img class="w-5 h-5" src="https://blog.winter-software.com/dist/favicon-96x96.png" alt="" >
+                        <Image class="w-5 h-5" src="https://blog.winter-software.com/dist/favicon-96x96.png" alt="" inferSize={true} loading="eager" />
                         Wave Alpha
                     </a>
                 </li>
                 <li>
                     <a class="flex gap-2 hover:text-purple-400" rel="me" target="_blank" href="https://tech.lgbt/@MiaWinter">
-                        <img class="w-5 h-5" src="https://tech.lgbt/favicon.ico" alt="" >
+                        <Image class="w-5 h-5" src="https://tech.lgbt/packs/media/icons/favicon-48x48-fde8123ad156c131c21bb0d158c67679.png" alt="" inferSize={true} loading="eager" />
                         Fediverse
                     </a>
                 </li>
                 <li>
                     <a class="flex gap-2 hover:text-purple-400" rel="me" target="_blank"  href="https://matrix.to/#/@miawinter:blahaj.date">
-                        <img class="w-5 h-5" src="https://matrix.org/assets/favicon.ico" alt="">
+                        <Image class="w-5 h-5" src="https://matrix.org/assets/favicon.svg" alt="" inferSize={true} />
                         Matrix
                     </a>
                 </li>
             </ul>
             <span class="grid place-items-center">
-                    <a href='https://ko-fi.com/miawinter' rel="me" target='_blank'>
-                        <img height='36' style='border:0;height:36px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com' />
-                    </a>
-                </span>
+                <a href='https://ko-fi.com/miawinter' rel="me" target='_blank'>
+                    <Image class="object-contain object-center max-width-full h-10" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com' inferSize={true} />
+                </a>
+            </span>
         </SidebarCard>
         <SidebarCard title="Interests">
             <dl class="grid md:grid-cols-1 gap-y-0.5 [&>*:nth-child(odd)]:font-bold [&>*:nth-child(odd)]:text-xl">

@@ -7,9 +7,10 @@ interface Props {
     tagLine: string;
     description: string;
     image: string;
+    eagerLoading?: boolean;
 }
 
-const { title, tagLine, description, image } = Astro.props;
+const { title, tagLine, description, image, eagerLoading = false } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,webp}')
 const imgGetter = images[image];
 if (!imgGetter) throw new Error(`"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,webp}"`);
@@ -26,7 +27,7 @@ const imgObject = await imgGetter();
 
     <div class="h-full max-w-128 flex cool relative">
         <div class="transition-colors ease-linear duration-300 absolute inset-0 bg-purple-200 dark:bg-purple-500 bg-opacity-40 dark:bg-opacity-40 cool"> </div>
-        <Image class="object-cover h-full w-full" src={imgObject.default}
-               widths={[300, 600, 900, imgObject.default.width]} alt="" />
+        <Image class="object-cover max-w-full" src={imgObject.default}
+               widths={[300, 600, imgObject.default.width]} alt="" loading={eagerLoading ? "eager" : "lazy"} />
     </div>
 </article>
