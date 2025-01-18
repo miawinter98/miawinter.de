@@ -26,7 +26,7 @@ const imgObject = await imgGetter();
     </div>
 
     <div class="h-full max-w-128 flex cool relative">
-        <div class="transition-colors ease-linear duration-300 absolute inset-0 bg-purple-200 dark:bg-purple-500 bg-opacity-40 dark:bg-opacity-40 cool"> </div>
+        <div class="transition-colors ease-linear duration-300 absolute inset-0 bg-purple-200 backdrop-blur-[2px] dark:bg-purple-500 bg-opacity-40 dark:bg-opacity-40 cool"> </div>
         <Image class="object-cover max-w-full" src={imgObject.default}
                widths={[300, 600, imgObject.default.width]} alt="" loading={eagerLoading ? "eager" : "lazy"} />
     </div>
