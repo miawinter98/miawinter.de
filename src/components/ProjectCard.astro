@@ -17,11 +17,11 @@ if (!imgGetter) throw new Error(`"${image}" does not exist in glob: "src/assets/
 const imgObject = await imgGetter();
 ---
 
-<article class="transition-colors ease-linear duration-300 bg-base-300 flex gap-4 justify-between shadow-block">
-    <div class="p-8">
+<article class="transition-colors ease-linear duration-300 bg-base-300 flex gap-4 justify-between shadow-block h-76 xl:h-60">
+    <div class="p-8 flex flex-col">
         <h3 class="text-xl mb-1">{title}</h3>
         <h4 class="text-lg">{tagLine}</h4>
-        <p class="my-3">{description}</p>
+        <p class="my-3 flex-1">{description}</p>
         <slot />
     </div>
 
