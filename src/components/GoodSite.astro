@@ -50,6 +50,13 @@ import ProfilePicture from "../assets/profile_picture.png"
             <CoolButton label="Go To Site" url="https://geekslist.de" favicon="https://geekslist.de/favicon.svg" eagerLoading={true} />
         </ProjectCard>
         <ProjectCard eagerLoading={true}
+                     title="image-gallery"
+                     tagLine="Create a simple image gallery using Github Pages and Astro "
+                     description="Template repository for creating simple, static image galleries "
+                     image="/src/assets/image-gallery.png">
+            <CoolButton label="Project Repository" url="https://github.com/miawinter98/image-gallery" />
+        </ProjectCard>
+        <ProjectCard eagerLoading={true}
                 title="Just Short It!"
                 tagLine="The most KISS single-user URL shortener there is"
                 description="Link shortening, nothing more, nothing less"
@@ -103,14 +110,14 @@ import ProfilePicture from "../assets/profile_picture.png"
                 </li>
                 <li>
                     <a class="flex gap-2 hover:text-purple-400" rel="me" target="_blank"  href="https://matrix.to/#/@miawinter:blahaj.date">
-                        <Image class="w-5 h-5" src="https://matrix.org/assets/favicon.svg" alt="" inferSize={true} />
+                        <Image loading="eager" class="w-5 h-5" src="https://matrix.org/assets/favicon.svg" alt="" inferSize={true} />
                         Matrix
                     </a>
                 </li>
             </ul>
             <span class="grid place-items-center">
                 <a href='https://ko-fi.com/miawinter' rel="me" target='_blank'>
-                    <Image class="object-contain object-center max-width-full h-10" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com' inferSize={true} />
+                    <Image loading="eager" class="object-contain object-center max-width-full h-10" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com' inferSize={true} />
                 </a>
             </span>
         </SidebarCard>
