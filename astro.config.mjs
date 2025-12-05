@@ -9,6 +9,7 @@ export default defineConfig({
             applyBaseStyles: false
         }
     )],
+    trailingSlash: "ignore",
     image: {
         remotePatterns: [{protocol: "https"}],
         domains: ["miawinter.de", "winter-software.com", "geekslist.de", "tech.lgbt", "matrix.org", "ko-fi.com"]
