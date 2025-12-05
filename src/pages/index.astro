@@ -7,20 +7,3 @@ import GoodSite from "../components/GoodSite.astro";
 <Layout title="Mia Rose Winter">
 	<GoodSite />
 </Layout>
-
-<script>
-	const toggle = document.getElementById("ThemeToggle");
-	
-	if (toggle) {
-		toggle.addEventListener("click", function (){
-			let theme = document.documentElement.dataset.theme;
-			if (theme === "dark") {
-				document.documentElement.dataset.theme = "light";
-				localStorage.theme = "light";
-			} else {
-				document.documentElement.dataset.theme = "dark";
-				localStorage.theme = "dark";
-			}
-		})
-	}
-</script>

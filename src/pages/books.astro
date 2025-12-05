@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import BookCard from "../components/BookCard.astro";
+---
+
+<Layout title="Mia Rose Winter">
+    <Header>
+        <p class="text-lg">
+            Behold, all the cool stuff I <span class="line-through" aria-hidden="true">found</span> have written.
+        </p>
+        <p>&nbsp;</p>
+    </Header>
+    <main class="transition-colors ease-linear duration-300 py-6 px-4 md:px-12">
+        <h2 class="text-2xl mb-3">Books</h2>
+        <div class="flex flex-wrap gap-x-8 gap-y-4">
+            <BookCard title="unnamed house of roses prequel"
+                      description="TBA"
+                      release="9999-12-31">
+                <ul>
+                    <li><!-- <a class="underline" href="#">Download PDF</a> --></li>
+                </ul>
+            </BookCard>
+        </div>
+    </main>
+</Layout>
