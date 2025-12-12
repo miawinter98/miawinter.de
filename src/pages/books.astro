@@ -13,12 +13,17 @@ import BookCard from "../components/BookCard.astro";
     </Header>
     <main class="transition-colors ease-linear duration-300 py-6 px-4 md:px-12">
         <h2 class="text-2xl mb-3">Books</h2>
-        <div class="flex flex-wrap gap-x-8 gap-y-4">
-            <BookCard title="unnamed house of roses prequel"
-                      description="TBA"
+        <div class="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4">
+            <BookCard title="Building a House of Roses"
+                      description="First chapter now available as preview while I'm working on finishing this book"
                       release="9999-12-31">
                 <ul>
-                    <li><!-- <a class="underline" href="#">Download PDF</a> --></li>
+                    <li>
+                        <a class="underline"
+                           href="/books/Building a House of Roses/Building a House of Roses - First Chapter.pdf">
+                            Download Preview
+                        </a>
+                    </li>
                 </ul>
             </BookCard>
         </div>
