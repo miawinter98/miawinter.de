@@ -3,23 +3,48 @@
 interface Props {
     title: string;
     description: string;
-    release: string;
+    series: string;
+    synopsis?: string;
+    release?: string;
+    genres?: string[];
 }
 
-const { title, description, release } = Astro.props;
+const { title, series, description, synopsis, release, genres = [] } = Astro.props;
 ---
 
-<article class="max-w-60 aspect-[2/3] bg-primary text-primary-content p-4 rounded-sm">
-    <div class="flex flex-col h-full">
-        <h3 class="text-lg font-bold mb-6 capitalize">{title}</h3>
+<article class="max-w-2xl aspect-[5/3] grid grid-cols-1 md:grid-cols-5 bg-neutral text-neutral-content rounded-sm">
+    <div class="flex flex-col h-full col-span-2 bg-primary text-primary-content p-4">
         <div class="flex-1">
-            <p>{description}</p>
+            <p>
+                <small> &lt;maybe some day a cool cover if I can afford to commission one&gt; </small>
+            </p>
         </div>
-        <slot />
         <p class="text-end mt-6">
             <time datetime={release}>
-                {new Date(Date.parse(release)).toLocaleDateString()}
+                {release && new Date(Date.parse(release)).toLocaleDateString()}
             </time>
         </p>
+    </div>
+    <div class="flex flex-col p-4 col-span-3">
+        <h3 class="text-lg font-bold capitalize">{title}</h3>
+        <h4 class="text-sm mb-3">{series}</h4>
+
+        <p class="font-bold mb-1">Genres</p>
+        <div>
+            <ul class="flex flex-wrap gap-1">
+                { genres.map(g =>
+                        <li class="p-1 w-24 text-sm text-center bg-primary text-primary-content rounded-full">{g}</li>)
+                }
+            </ul>
+        </div>
+        <p class="font-bold mb-1 mt-3">Description</p>
+        <p>
+            {description}
+        </p>
+        <p class="font-bold mb-1 mt-3">Synopsis</p>
+        <p class="overflow-y-auto flex-1 hyphens-auto text-justify pr-2">
+            <Fragment set:html={synopsis?.replaceAll('\\', '<br/>')} />
+        </p>
+        <slot />
     </div>
 </article>
