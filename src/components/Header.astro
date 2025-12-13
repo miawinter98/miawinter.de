@@ -19,13 +19,13 @@ const urlSegment = pathname.replaceAll('/', '');
 
     <nav class="text-lg">
         <ul class="flex justify-center w-full *:max-md:flex-1">
-            <li class:list={['border-b-4 w-28 text-center', {'border-secondary': (urlSegment.length < 1)}, {'border-transparent': (urlSegment.length >= 1)}]}>
-                <a href="/">
+            <li class:list={['flex border-b-4 w-28 text-center', {'border-secondary': (urlSegment.length < 1)}, {'border-transparent': (urlSegment.length >= 1)}]}>
+                <a class="w-full h-full" href="/">
                     Home
                 </a>
             </li>
-            <li class:list={['border-b-4 w-28 text-center', {'border-secondary': urlSegment.endsWith('books')}, {'border-transparent': !urlSegment.endsWith('books')}]}>
-                <a href="/books">
+            <li class:list={['flex border-b-4 w-28 text-center', {'border-secondary': urlSegment.endsWith('books')}, {'border-transparent': !urlSegment.endsWith('books')}]}>
+                <a class="w-full h-full" href="/books">
                     Books
                 </a>
             </li>
