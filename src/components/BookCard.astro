@@ -48,13 +48,15 @@ const { title, series, description, release, genres = [] } = Astro.props;
 
         <div class="bg-secondary text-secondary-content flex justify-between items-end h-16 p-4">
             <slot name="footer" />
-            {
-                release && <p class="text-end">
-                        <time datetime={release}>
-                            {new Date(Date.parse(release)).toLocaleDateString()}
-                        </time>
-                    </p>
-            }
+            <p class="text-end">
+                Release:
+                {
+                    release &&  <time datetime={release}>
+                                    {new Date(Date.parse(release)).toLocaleDateString()}
+                                </time>
+                }
+                { !release && <span>TBA</span> }
+            </p>
         </div>
     </div>
 </article>
