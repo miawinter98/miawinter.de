@@ -11,14 +11,14 @@ interface Props {
 const { title, series, description, release, genres = [] } = Astro.props;
 ---
 
-<article class="w-full flex flex-col md:flex-row bg-neutral text-neutral-content rounded-sm shadow-block">
+<article class="w-full flex flex-col md:flex-row transition-colors ease-linear duration-300 bg-base-300 text-base-content rounded-sm overflow-hidden shadow-block">
     <div class="aspect-[2/3] max-h-96 col-span-2 grid place-items-center text-center">
-        <p class="aspect-[2/3] max-h-96 bg-primary text-primary-content p-4">
+        <p class="aspect-[2/3] max-h-96 bg-base-200 text-base-content transition-colors ease-linear duration-300 p-4">
             <small> &lt;maybe some day a cool cover if I can afford to commission one&gt; </small>
         </p>
     </div>
     <div class="h-full w-full flex flex-col justify-between">
-        <div class="md:h-80 p-4 overflow-y-auto">
+        <div class="md:h-80 p-4 overflow-y-auto bg-pattern-polka">
             <h3 class="text-lg font-bold capitalize">{title}</h3>
             <h4 class="text-sm mb-3">{series}</h4>
 
@@ -26,7 +26,7 @@ const { title, series, description, release, genres = [] } = Astro.props;
                 <h5 class="font-bold mb-1">Genres</h5>
                 <ul class="flex flex-wrap gap-1">
                     { genres.map(g =>
-                            <li class="p-1 w-24 text-sm text-center bg-primary text-primary-content rounded-full">{g}</li>)
+                            <li class="p-1 w-24 text-sm text-center transition-colors ease-linear duration-300 bg-secondary text-secondary-content rounded-full">{g}</li>)
                     }
                 </ul>
             </div>
@@ -46,7 +46,7 @@ const { title, series, description, release, genres = [] } = Astro.props;
             </div>
         </div>
 
-        <div class="bg-secondary text-secondary-content flex justify-between items-end h-16 p-4">
+        <div class="bg-base-200 text-base-content transition-colors ease-linear duration-300 flex justify-between items-end h-16 p-4">
             <slot name="footer" />
             <p class="text-end">
                 Release:

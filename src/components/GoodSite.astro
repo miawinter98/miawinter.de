@@ -17,32 +17,11 @@ import Header from "./Header.astro";
     <div class="flex flex-col gap-4 lg:col-span-2">
         <h2 class="text-2xl mb-3">Projects</h2>
         <ProjectCard eagerLoading={true}
-                     title="GeeksList"
-                     tagLine="Keep track of your favorite shows"
-                     description="Currently being rebuilt from the ground up using angular and asp.net core"
-                     image="/src/assets/geekslist.png">
-            <CoolButton label="Go To Site" url="https://geekslist.de" favicon="https://geekslist.de/favicon.png" eagerLoading={true} />
-        </ProjectCard>
-        <ProjectCard eagerLoading={true}
-                title="Wave"
-                tagLine="The Collaborative Open-Source Blogging Engine"
-                description="Stay afloat in a current of Information!"
-                image="/src/assets/wave-social.png">
-            <CoolButton label="Project Repository" url="https://github.com/miawinter98/Wave" />
-        </ProjectCard>
-        <ProjectCard eagerLoading={true}
-                     title="image-gallery"
-                     tagLine="Create a simple image gallery using Github Pages and Astro"
-                     description="Template repository for creating simple, static image galleries"
-                     image="/src/assets/image-gallery.png">
-            <CoolButton label="Project Repository" url="https://github.com/miawinter98/image-gallery" />
-        </ProjectCard>
-        <ProjectCard eagerLoading={true}
-                title="Just Short It!"
-                tagLine="The most KISS single-user URL shortener there is"
-                description="Link shortening, nothing more, nothing less"
-                image="/src/assets/just-short-it.png">
-            <CoolButton label="Project Repository" url="https://github.com/miawinter98/just-short-it" />
+                     title="winter-software.com"
+                     tagLine="My Portfolio Website"
+                     description="You can find all my software and web projects there, as well as some other goodies"
+                     image="/src/assets/winter-software.com.png">
+            <CoolButton label="Go To Site" url="https://winter-software.com" eagerLoading={true} favicon="https://winter-software.com/favicon-32x32.png" />
         </ProjectCard>
         <ProjectCard eagerLoading={true}
                 title="miawinter.de"
@@ -50,13 +29,6 @@ import Header from "./Header.astro";
                 description="Yep"
                 image="/src/assets/miawinter.de.png">
             <CoolButton label="Recursion Error" url="https://miawinter.de" favicon="https://miawinter.de/favicon.png" target="_self" />
-        </ProjectCard>
-        <ProjectCard eagerLoading={true}
-                title="winter-software.com"
-                tagLine="My cool businessy business site"
-                description="Very very business"
-                image="/src/assets/winter-software.com.png">
-            <CoolButton label="Go To Site" url="https://winter-software.com" favicon="https://winter-software.com/favicon-32x32.png" />
         </ProjectCard>
     </div>
     <div class="flex flex-col gap-4">
@@ -85,7 +57,7 @@ import Header from "./Header.astro";
             </ul>
             <span class="grid place-items-center">
                 <a href='https://ko-fi.com/miawinter' rel="me" target='_blank'>
-                    <Image loading="eager" class="object-contain object-center max-width-full h-10" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com' inferSize={true} />
+                    <Image loading="lazy" class="object-contain object-center max-width-full h-10" src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com' inferSize={true} />
                 </a>
             </span>
         </SidebarCard>

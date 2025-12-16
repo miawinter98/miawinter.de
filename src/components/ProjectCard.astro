@@ -12,22 +12,20 @@ interface Props {
 
 const { title, tagLine, description, image, eagerLoading = false } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,webp}')
-const imgGetter = images[image];
-if (!imgGetter) throw new Error(`"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,webp}"`);
-const imgObject = await imgGetter();
+if (!images[image]) throw new Error(`"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,webp}"`);
 ---
 
-<article class="transition-colors ease-linear duration-300 bg-base-300 flex gap-4 justify-between shadow-block h-76 xl:h-60">
-    <div class="p-8 flex flex-col">
+<article class="transition-colors ease-linear duration-300 bg-base-300 text-base-content flex shadow-block h-80 rounded-sm overflow-hidden">
+    <div class="p-8 flex-1 flex flex-col bg-pattern-polka">
         <h3 class="text-xl mb-1">{title}</h3>
-        <h4 class="text-lg line-clamp-1">{tagLine}</h4>
-        <p class="my-3 flex-1 line-clamp-2">{description}</p>
+        <h4 class="text-lg line-clamp-2">{tagLine}</h4>
+        <p class="my-3 flex-1 line-clamp-3">{description}</p>
         <slot />
     </div>
 
-    <div class="h-full max-w-128 flex cool relative">
-        <div class="transition-colors ease-linear duration-300 absolute inset-0 bg-purple-200 backdrop-blur-[2px] dark:bg-purple-500 bg-opacity-40 dark:bg-opacity-40 cool"> </div>
-        <Image class="object-cover max-w-full" src={imgObject.default}
-               widths={[300, 600, imgObject.default.width]} alt="" loading={eagerLoading ? "eager" : "lazy"} />
+    <div class="h-full max-w-90 relative">
+        <div class="transition-colors ease-linear duration-300 absolute inset-0 backdrop-blur-[2px] bg-accent opacity-40"> </div>
+        <Image class="object-cover object-left max-w-full h-full" src={images[image]()}
+               widths={[300, 600, 900, 1200]} alt="" loading={eagerLoading ? "eager" : "lazy"} />
     </div>
 </article>

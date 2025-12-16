@@ -32,6 +32,8 @@
     --color-secondary-content: var(--color-secondary-content);
     --color-neutral: var(--color-neutral);
     --color-neutral-content: var(--color-neutral-content);
+    --color-accent: var(--color-accent);
+    --color-accent-content: var(--color-accent-content);
 
     --color-base-100: var(--color-base-100);
     --color-base-200: var(--color-base-200);
@@ -45,35 +47,60 @@
     }
 
     :root {
-        --color-primary: oklch(0.511 0.209 357.035);
+        --color-primary: oklch(0.46 0.173 24.495);
         --color-primary-content: white;
-        --color-secondary: oklch(0.487 0.042 359.019);
+        --color-secondary: oklch(0.161 0.011 196.108);
         --color-secondary-content: white;
         --color-neutral: oklch(0.92 0.044 0.338);
         --color-neutral-content: oklch(0.226 0.01 355.846);
+        --color-accent: var(--color-purple-200);
+        --color-accent-content: black;
 
         --color-base-100: oklch(0.992 0.007 325.627);
         --color-base-200: oklch(0.923 0.07 326.127);
-        --color-base-300: oklch(0.916 0.051 351.279); /* TODO ? */
+        --color-base-300: oklch(0.916 0.051 351.279);
         --color-base-content: oklch(0.226 0.01 355.846);
     }
 
     [data-theme="dark"] {
-        --color-primary: oklch(0.511 0.209 357.035);
-        --color-primary-content: oklch(0.961 0 89.876);
-        --color-secondary: oklch(0.54 0.221 356.764);
-        --color-secondary-content: oklch(0.961 0 89.876);
-        --color-neutral: oklch(0.625 0.211 336.837);
+        --color-primary: oklch(0.434 0.174 22.791);
+        --color-primary-content: white;
+        --color-secondary: oklch(0.161 0.011 196.108);
+        --color-secondary-content: white;
+        --color-neutral: oklch(0.579 0.217 337.724);
         --color-neutral-content: white;
+        --color-accent: var(--color-purple-500);
+        --color-accent-content: black;
 
         --color-base-100: oklch(0.275 0.105 323.902);
         --color-base-200: oklch(0.458 0.191 324.14);
-        --color-base-300: oklch(0.367 0.149 323.79); /* TODO ? */
-        --color-base-content: oklch(0.961 0 89.876);
+        --color-base-300: oklch(0.367 0.149 323.79);
+        --color-base-content: white;
     }
 }
 @layer components {
     .cool {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 6rem 100%);
+    }
+    .bg-pattern-diagonal {
+        @apply bg-blend-overlay;
+        background: transparent repeating-linear-gradient(-45deg, var(--color-secondary), var(--color-secondary) 8px, var(--color-base-300) 5px, var(--color-base-300) 25px);
+    }
+    .bg-pattern-rhombus {
+        @apply bg-blend-overlay;
+        background-color: transparent;
+        opacity: 0.8;
+        background-image:  linear-gradient(135deg, var(--color-secondary) 25%, transparent 25%), linear-gradient(225deg, var(--color-secondary) 25%, transparent 25%), linear-gradient(45deg, var(--color-secondary) 25%, transparent 25%), linear-gradient(315deg, var(--color-secondary) 25%, var(--color-base-300) 25%);
+        background-position:  7px 0, 7px 0, 0 0, 0 0;
+        background-size: 7px 7px;
+        background-repeat: repeat;
+    }
+    .bg-pattern-polka {
+        @apply bg-blend-overlay;
+        background-color: transparent;
+        opacity: 0.8;
+        background-image:  radial-gradient(var(--color-secondary) 0.35px, transparent 0.35px), radial-gradient(var(--color-secondary) 0.35px, var(--color-base-300) 0.35px);
+        background-size: 14px 14px;
+        background-position: 0 0,7px 7px;
     }
 }

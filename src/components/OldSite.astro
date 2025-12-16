@@ -3,8 +3,10 @@ import { Image, Picture } from 'astro:assets';
 
 import ProfilePicture from "../assets/profile_picture.png"
 import PgpKey from "../components/PgpKey.astro";
+import type {ImageMetadata} from "astro";
 
-const images = await Astro.glob("../assets/88x31/*");
+const images = import.meta.glob<{ default: ImageMetadata }>("../assets/88x31/*", { eager: true });
+
 ---
 
 <main class="font-old transition-colors ease-linear duration-300 bg-base-100 text-base-content">
@@ -74,7 +76,7 @@ const images = await Astro.glob("../assets/88x31/*");
         <h2 class="text-xl">friendly buttons</h2>
 
         <div class="flex gap-2">{
-            images.map(image => (
+            Object.values(images).map(image => (
                 <Image src={image.default} alt="" />
             ))
         }</div>
