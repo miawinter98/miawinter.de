@@ -17,8 +17,8 @@ if (!images[image]) throw new Error(`"${image}" does not exist in glob: "src/ass
 
 <article class="transition-colors ease-linear duration-300 bg-base-300 text-base-content flex shadow-block h-80 rounded-sm overflow-hidden">
     <div class="p-8 flex-1 flex flex-col bg-pattern-polka">
-        <h3 class="text-xl mb-1">{title}</h3>
-        <h4 class="text-lg line-clamp-2">{tagLine}</h4>
+        <h2 class="text-xl mb-1">{title}</h2>
+        <h3 class="text-lg line-clamp-2">{tagLine}</h3>
         <p class="my-3 flex-1 line-clamp-3">{description}</p>
         <slot />
     </div>
