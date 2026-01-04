@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+
+const posts = (await getCollection('writing')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout title="Writing" description="Little writing exercises and short stories I made. No guarantees for quality.">
+    <Header>
+        <p class="text-lg">
+            Little writing exercises and short stories I made. No guarantees for quality.
+        </p>
+        <p>&nbsp;</p>
+    </Header>
+
+    <main class="container p-4 mx-auto">
+        <dl class="grid grid-cols-[auto_1fr] gap-x-2">
+            {posts.map(post => (
+                <dt>{post.data.date.toLocaleDateString("en-GB", {})}</dt>
+                <dd><a class="underline" href={`/writing/${post.id}`}>{post.data.title}</a></dd>
+            ))}
+        </dl>
+    </main>
+</Layout>

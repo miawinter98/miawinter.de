@@ -43,7 +43,27 @@
 
 @layer base {
     html, body {
-        @apply bg-base-100 text-base-content;
+        @apply bg-base-100 text-base-content h-full;
+    }
+
+    main.prose {
+        @apply container mx-auto max-w-5xl p-4 bg-base-200 lg:text-lg transition-colors ease-linear duration-300;
+
+        h1 {
+            @apply text-3xl lg:text-5xl;
+        }
+        h2 {
+            @apply text-2xl lg:text-4xl;
+        }
+        h3 {
+            @apply text-xl lg:text-3xl;
+        }
+        h4 {
+            @apply text-lg lg:text-2xl;
+        }
+        p {
+            @apply my-3;
+        }
     }
 
     :root {

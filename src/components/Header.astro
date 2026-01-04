@@ -31,6 +31,11 @@ const urlSegment = pathname.replaceAll('/', '');
                     Books
                 </a>
             </li>
+            <li class:list={['flex border-b-4 w-40 text-center', {'border-secondary': urlSegment.endsWith('writing')}, {'border-transparent': !urlSegment.endsWith('writing')}]}>
+                <a class="w-full h-full" href="/writing">
+                    Writing <span class="hidden sm:inline">Exercises</span>
+                </a>
+            </li>
         </ul>
     </nav>
 
