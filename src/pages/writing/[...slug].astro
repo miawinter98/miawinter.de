@@ -23,10 +23,12 @@ const { Content } = await render(post);
         <p>&nbsp;</p>
     </Header>
 
-    <main class="prose">
-        <h1>{ post.data.title }</h1>
+    <div class="bg-base-200 transition-colors ease-linear duration-300">
+        <main class="prose bg-base-100 text-base-content">
+            <h1>{ post.data.title }</h1>
 
-        <Content />
-    </main>
+            <Content />
+        </main>
+    </div>
 
 </Layout>
