@@ -5,6 +5,7 @@
 @theme {
     --font-sans: "Josefin Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-old: serif;
+    --font-prose: 'Atkinson Hyperlegible Next', sans-serif;
 
     --text-sm: 0.750rem;
     --text-sm--line-height: inherit;
@@ -47,22 +48,22 @@
     }
 
     main.prose {
-        @apply container mx-auto max-w-3xl p-4 lg:text-lg text-justify hyphens-auto;
+        @apply md:text-lg text-justify hyphens-auto;
 
         h1, h2, h3, h4, h5, h6 {
             @apply hyphens-none text-left;
         }
         h1 {
-            @apply text-3xl lg:text-5xl;
+            @apply text-3xl md:text-5xl;
         }
         h2 {
-            @apply text-2xl lg:text-4xl;
+            @apply text-2xl md:text-4xl;
         }
         h3 {
-            @apply text-xl lg:text-3xl;
+            @apply text-xl md:text-3xl;
         }
         h4 {
-            @apply text-lg lg:text-2xl;
+            @apply text-lg md:text-2xl;
         }
         p {
             @apply my-3;

@@ -1,5 +1,9 @@
 ---
 import Layout from "./Layout.astro";
+import '@fontsource/atkinson-hyperlegible-next/400';
+import '@fontsource/atkinson-hyperlegible-next/700';
+import '@fontsource/atkinson-hyperlegible-next/400-italic.css';
+import '@fontsource/atkinson-hyperlegible-next/700-italic.css';
 
 interface Props {
 	title: string;
@@ -11,10 +15,10 @@ const { title, description, header } = Astro.props;
 ---
 
 <Layout title={title} description={description} header={header}>
-    <div class="bg-base-200 transition-colors ease-linear duration-300">
-        <main class="prose bg-base-100 text-base-content">
+    <div class="bg-base-100 transition-colors ease-linear duration-300">
+        <main class="prose font-prose container mx-auto max-w-3xl xl:max-w-5xl p-4 bg-base-200/20 text-base-content min-h-full">
             <h1>{ title }</h1>
-
+            <hr class="border-primary -mx-2" />
             <slot />
         </main>
     </div>

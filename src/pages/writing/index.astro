@@ -13,7 +13,7 @@ const posts = (await getCollection('writing')).sort(
         <dl class="grid grid-cols-[auto_1fr] gap-x-2">
             {posts.map(post => (
                 <dt>{post.data.date.toLocaleDateString("en-GB", {})}</dt>
-                <dd><a class="underline" href={`/writing/${post.id}`}>{post.data.title}</a></dd>
+                <dd><a href={`/writing/${post.id}`}>{post.data.title}</a></dd>
             ))}
         </dl>
     </main>

@@ -14,8 +14,6 @@ Content notes for: Food, meat, death, existentialism.
 
 Yea you read that right.
 
----
-
 ## Vivian has a Chicken Sandwich
 
 Many things can be said about life.
