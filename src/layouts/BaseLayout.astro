@@ -1,0 +1,39 @@
+---
+import "@fontsource/josefin-sans/latin-400.css";
+import "@fontsource/josefin-sans/latin-700.css";
+import "./style.css";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+
+		<meta name="author" content="Mia Rose Winter">
+		<meta name="description" content={description} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+
+		<link rel="icon" type="image/png" href="/favicon.png">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<script is:inline>
+		document.documentElement.dataset.theme = ("theme" in localStorage) ?
+			localStorage.theme :
+			(window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light");
+	</script>
+	<body class="transition-colors ease-linear duration-300">
+		<slot />
+	</body>
+</html>

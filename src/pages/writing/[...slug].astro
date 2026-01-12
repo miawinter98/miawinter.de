@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("writing");
@@ -16,13 +15,6 @@ const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
-    <Header>
-        <p class="text-lg">
-            { post.data.description }
-        </p>
-        <p>&nbsp;</p>
-    </Header>
-
     <div class="bg-base-200 transition-colors ease-linear duration-300">
         <main class="prose bg-base-100 text-base-content">
             <h1>{ post.data.title }</h1>

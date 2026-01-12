@@ -1,7 +1,7 @@
 ---
 const {pathname} = Astro.url;
 
-import ProfilePicture from "../assets/profile_picture.png"
+import ProfilePicture from "/src/assets/profile_picture.png"
 import {Image} from "astro:assets";
 
 const urlSegment = pathname.replaceAll('/', '');
