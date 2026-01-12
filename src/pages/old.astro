@@ -1,25 +1,102 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import OldSite from "../components/OldSite.astro";
+import { Image, Picture } from 'astro:assets';
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ProfilePicture from "../assets/profile_picture.png"
+import PgpKey from "core/PgpKey.astro";
+import type {ImageMetadata} from "astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>("../assets/88x31/*", { eager: true });
 ---
 
-<Layout title="Mia Rose Winter">
-    <OldSite />
-</Layout>
+<BaseLayout title="Mia Rose Winter" description="A more old-school personal website"> 
+    <main class="font-old transition-colors ease-linear duration-300 bg-base-100 text-base-content">
+        <header class="text-primary bg-primary-content py-3 px-3">
+            <h1 class="text-3xl">Hello and welcome to my website</h1>
+            <p>Glad you made it!</p>
 
-<script>
-    const toggle = document.getElementById("ThemeToggle");
+            <button id="ThemeToggle" class="absolute top-4 right-4 bg-primary text-primary-content p-2 rounded-full cursor-pointer" title="toggle website dark theme">
+                <span class="dark:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                    </svg>
+                </span>
+                <span class="hidden dark:inline">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </button>
+        </header>
 
-    if (toggle) {
-        toggle.addEventListener("click", function (){
-            let theme = document.documentElement.dataset.theme;
-            if (theme === "dark") {
-                document.documentElement.dataset.theme = "light";
-                localStorage.theme = "light";
-            } else {
-                document.documentElement.dataset.theme = "dark";
-                localStorage.theme = "dark";
-            }
-        })
-    }
-</script>
+        <section class="mx-4 my-3 text-lg">
+            <h2 class="text-xl">About Me</h2>
+            <Picture class="w-40 my-1" src={ProfilePicture}
+                    formats={["png", "jpg", "webp"]}
+                    alt="Picrew of me made by me" />
+
+            I'm a hacker girl from Germany that's really tired of programming and into project management.
+        </section>
+
+        <section class="mx-4 my-3 text-lg">
+            <h2 class="text-xl">
+                Here you can find many cool projects I made
+            </h2>
+
+            <ol class="list-decimal">
+                <li class="ml-4">
+                    Wave (<a target="_blank" class="underline hover:text-secondary" href="https://github.com/miawinter98/Wave">https://github.com/miawinter98/Wave</a>)
+                </li>
+                <li class="ml-4">
+                    Winter Software Blog (<a target="_blank" class="underline hover:text-secondary" href="https://blog.winter-software.com">https://blog.winter-software.com</a>)
+                </li>
+                <li class="ml-4">
+                    Just Short It (Link Shortener) (<a target="_blank" class="underline hover:text-secondary" href="https://github.com/miawinter98/just-short-it">https://github.com/miawinter98/just-short-it</a>)
+                </li>
+            </ol>
+        </section>
+
+        <section class="mx-4 my-3 text-lg">
+            <h2 class="text-xl">PGP Key</h2>
+            <p>If you ever want to verify a commit is made by me, or send me an encrypted email, here is my PGP Key:</p>
+
+            <code class="font-mono my-1"><PgpKey /></code>
+        </section>
+
+        <a href="/" class="mx-4 my-4 bg-primary text-primary-content p-3 rounded-sm font-sans hover:bg-opacity-50">
+            Take me back to the other site
+        </a>
+
+        <hr class="my-6" />
+
+        <footer class="my-3 mx-4">
+            <h2 class="text-xl">My Buttons</h2>
+
+            <p class="italic">coming soon</p>
+
+            <h2 class="text-xl">friendly buttons</h2>
+
+            <div class="flex gap-2">{
+                Object.values(images).map(image => (
+                    <Image src={image.default} alt="" />
+                ))
+            }</div>
+        </footer>
+    </main>
+    <script>
+        const toggle = document.getElementById("ThemeToggle");
+
+        if (toggle) {
+            toggle.addEventListener("click", function () {
+                let theme = document.documentElement.dataset.theme;
+                if (theme === "dark") {
+                    document.documentElement.dataset.theme = "light";
+                    localStorage.theme = "light";
+                } else {
+                    document.documentElement.dataset.theme = "dark";
+                    localStorage.theme = "dark";
+                }
+            })
+        }
+    </script>
+</BaseLayout>
