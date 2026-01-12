@@ -2,7 +2,7 @@
 import { Image, Picture } from 'astro:assets';
 
 import ProfilePicture from "../assets/profile_picture.png"
-import PgpKey from "../components/PgpKey.astro";
+import PgpKey from "core/PgpKey.astro";
 import type {ImageMetadata} from "astro";
 
 const images = import.meta.glob<{ default: ImageMetadata }>("../assets/88x31/*", { eager: true });
