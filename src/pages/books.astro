@@ -1,27 +1,24 @@
 ---
-import Layout from "layouts/Layout.astro";
+import CardLayout from "layouts/CardLayout.astro";
 import BookCard from "shared/BookCard.astro";
 ---
 
-<Layout title="Mia Rose Winter" header="Behold, all the cool stuff I have written.">
-    <main class="transition-colors ease-linear duration-300 py-6 px-4 md:px-12">
-        <h1 class="text-2xl mb-3">Books</h1>
-        <div class="flex flex-col gap-y-4">
-            <BookCard title="Building a House of Roses"
-                      series="House of Roses"
-                      description="First chapter now available as preview while I'm working on finishing this book"
-                      genres={["Cyberpunk", "Romance", "Tragedy"]}>
-                <!-- synopsis here -->
+<CardLayout title="Mia Rose Winter" cards="Books" header="Behold, all the cool stuff I have written.">
+    <div class="flex flex-col gap-y-4">
+        <BookCard title="Building a House of Roses"
+                    series="House of Roses"
+                    description="First chapter now available as preview while I'm working on finishing this book"
+                    genres={["Cyberpunk", "Romance", "Tragedy"]}>
+            <!-- synopsis here -->
 
-                <ul slot="footer">
-                    <li>
-                        <a class="underline"
-                           href="/books/Building a House of Roses/Building a House of Roses - First Chapter.pdf">
-                            Download Preview
-                        </a>
-                    </li>
-                </ul>
-            </BookCard>
-        </div>
-    </main>
-</Layout>
+            <ul slot="footer">
+                <li>
+                    <a class="underline"
+                        href="/books/Building a House of Roses/Building a House of Roses - First Chapter.pdf">
+                        Download Preview
+                    </a>
+                </li>
+            </ul>
+        </BookCard>
+    </div>
+</CardLayout>

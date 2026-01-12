@@ -1,128 +1,122 @@
 ---
 import {Image} from 'astro:assets';
 
-import Layout from 'layouts/Layout.astro';
+import CardLayout from 'layouts/CardLayout.astro';
 import ProjectCard from "shared/ProjectCard.astro";
 import SidebarCard from "shared/SidebarCard.astro";
 import CoolButton from "shared/CoolButton.astro";
 import PgpKey from "core/PgpKey.astro";
 ---
 
-<Layout title="Mia Rose Winter" 
-		header="Loves to manage projects, forced to build software. Cat Woman ADHD and way too many projects.">
-	<main class="transition-colors ease-linear duration-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-6 px-4 md:px-12 gap-8">
-		<div class="flex flex-col gap-4 lg:col-span-2">
-			<h1 class="text-2xl mb-3">Projects</h1>
-			<ProjectCard eagerLoading={true}
-						title="winter-software.com"
-						tagLine="My Portfolio Website"
-						description="You can find all my software and web projects there, as well as some other goodies"
-						image="/src/assets/winter-software.com.png">
-				<CoolButton label="Go To Site" url="https://winter-software.com" eagerLoading={true}
-							favicon="https://winter-software.com/favicon-32x32.png"/>
-			</ProjectCard>
-			<ProjectCard eagerLoading={true}
-						title="miawinter.de"
-						tagLine="This site"
-						description="Yep"
-						image="/src/assets/miawinter.de.png">
-				<CoolButton label="Recursion Error" url="https://miawinter.de" favicon="https://miawinter.de/favicon.png"
-							target="_self"/>
-			</ProjectCard>
+<CardLayout title="Mia Rose Winter" cards="Projects"
+			header="Loves to manage projects, forced to build software. Cat Woman ADHD and way too many projects.">
+	<ProjectCard eagerLoading={true}
+				title="winter-software.com"
+				tagLine="My Portfolio Website"
+				description="You can find all my software and web projects there, as well as some other goodies"
+				image="/src/assets/winter-software.com.png">
+		<CoolButton label="Go To Site" url="https://winter-software.com" eagerLoading={true}
+					favicon="https://winter-software.com/favicon-32x32.png"/>
+	</ProjectCard>
+	<ProjectCard eagerLoading={true}
+				title="miawinter.de"
+				tagLine="This site"
+				description="Yep"
+				image="/src/assets/miawinter.de.png">
+		<CoolButton label="Recursion Error" url="https://miawinter.de" favicon="https://miawinter.de/favicon.png"
+					target="_self"/>
+	</ProjectCard>
+	
+	<Fragment slot="aside">
+		<SidebarCard title="About">
+			<dl class="grid md:grid-cols-1 gap-y-0.5 [&>*:nth-child(odd)]:font-bold [&>*:nth-child(odd)]:text-xl">
+				<dt>Birth</dt>
+				<dd>1998-08-05</dd>
+				<dt>Favorite Colors</dt>
+				<dd>Pink, Purple, Yellow and sometimes Blue. Now also Green... uhh add Red to that list</dd>
+				<dt>Hobbys</dt>
+				<dd>too much to list honestly.</dd>
+				<dt>Persona</dt>
+				<dd>Extrovert, sometimes energetic, sometimes eepy. Trying to be cheerful, but some days I need an extra
+					cup of cofe.
+				</dd>
+			</dl>
+		</SidebarCard>
+		<SidebarCard title="Socials & Profiles">
+			<ul class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-4 mb-3">
+				<li>
+					<a class="flex gap-2 hover:text-purple-400" rel="me" target="_blank"
+					href="https://github.com/miawinter98">
+						<svg class="w-5 h-5" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd"
+								d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+								fill="currentColor"/>
+						</svg>
+						GitHub
+					</a>
+				</li>
+				<li>
+					<a href='https://ko-fi.com/miawinter' rel="me" target='_blank'>
+						<Image loading="lazy" class="object-contain object-center max-width-full h-10"
+							src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com'
+							inferSize={true}/>
+					</a>
+				</li>
+			</ul>
+		</SidebarCard>
+		<SidebarCard title="Interests">
+			<dl class="grid md:grid-cols-1 gap-y-0.5 [&>*:nth-child(odd)]:font-bold [&>*:nth-child(odd)]:text-xl">
+				<dt>Writing</dt>
+				<dd>A rediscovered childhood passion I may try to turn into something bigger... because I'm stupid like
+					that
+				</dd>
+				<dt>Managing Projects</dt>
+				<dd>It's fun to work with a lot of people and help them realize a Project</dd>
+				<dt>Design</dt>
+				<dd>Suddenly was decent at it idk</dd>
+				<dt>Music composing</dt>
+				<dd>It's fun</dd>
+				<dt>Guitar 🎸</dt>
+				<dd>I love my guitar</dd>
+				<dt>Black Holes</dt>
+				<dd>It's kinda an obsession</dd>
+			</dl>
+		</SidebarCard>
+		<SidebarCard title="Languages">
+			<dl class="grid md:grid-cols-2">
+				<dt>German</dt>
+				<dd>Native</dd>
+				<dt>English</dt>
+				<dd>C2.1</dd>
+				<dt>Japanese</dt>
+				<dd>A1.1</dd>
+			</dl>
+		</SidebarCard>
+		<!-- TODO: move to winter-software <SidebarCard title="Programming Skills">
+			<dl class="grid md:grid-cols-1 gap-y-0.5 [&>*:nth-child(odd)]:font-bold [&>*:nth-child(odd)]:text-xl">
+				<dt>C-Family</dt>
+				<dd>C, C++, C#, dotnet, Java</dd>
+				<dt>Web</dt>
+				<dd>Html 5, CSS, tailwindcss, Asp.Net Core, Astro, React, Angular (17+)</dd>
+				<dt>Scripting</dt>
+				<dd>Python, Javascript, Lua (but am a bit rusty there)</dd>
+				<dt>Containerization</dt>
+				<dd>Docker, Docker compose</dd>
+			</dl>
+		</SidebarCard> -->
+		<SidebarCard title="PGP Key">
+			<details>
+				<summary class="list-none">
+					<span class="inline-flex gap-2 bg-secondary text-secondary-content p-2 w-32 hover:shadow-block hover:-hue-rotate-15 justify-center rounded-sm mb-3 cursor-pointer"
+						onclick="this.innerText = (this.innerText == 'Reveal' ? 'Hide' : 'Reveal')">
+						Reveal
+					</span>
+				</summary>
 
-		<a href="/old" class="underline hover:text-primary">Take me back in time</a>
-		</div>
-		<div class="flex flex-col gap-4">
-			<SidebarCard title="About">
-				<dl class="grid md:grid-cols-1 gap-y-0.5 [&>*:nth-child(odd)]:font-bold [&>*:nth-child(odd)]:text-xl">
-					<dt>Birth</dt>
-					<dd>1998-08-05</dd>
-					<dt>Favorite Colors</dt>
-					<dd>Pink, Purple, Yellow and sometimes Blue. Now also Green... uhh add Red to that list</dd>
-					<dt>Hobbys</dt>
-					<dd>too much to list honestly.</dd>
-					<dt>Persona</dt>
-					<dd>Extrovert, sometimes energetic, sometimes eepy. Trying to be cheerful, but some days I need an extra
-						cup of cofe.
-					</dd>
-				</dl>
-			</SidebarCard>
-			<SidebarCard title="Socials & Profiles">
-				<ul class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-4 mb-3">
-					<li>
-						<a class="flex gap-2 hover:text-purple-400" rel="me" target="_blank"
-						href="https://github.com/miawinter98">
-							<svg class="w-5 h-5" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" clip-rule="evenodd"
-									d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
-									fill="currentColor"/>
-							</svg>
-							GitHub
-						</a>
-					</li>
-					<li>
-						<a href='https://ko-fi.com/miawinter' rel="me" target='_blank'>
-							<Image loading="lazy" class="object-contain object-center max-width-full h-10"
-								src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com'
-								inferSize={true}/>
-						</a>
-					</li>
-				</ul>
-			</SidebarCard>
-			<SidebarCard title="Interests">
-				<dl class="grid md:grid-cols-1 gap-y-0.5 [&>*:nth-child(odd)]:font-bold [&>*:nth-child(odd)]:text-xl">
-					<dt>Writing</dt>
-					<dd>A rediscovered childhood passion I may try to turn into something bigger... because I'm stupid like
-						that
-					</dd>
-					<dt>Managing Projects</dt>
-					<dd>It's fun to work with a lot of people and help them realize a Project</dd>
-					<dt>Design</dt>
-					<dd>Suddenly was decent at it idk</dd>
-					<dt>Music composing</dt>
-					<dd>It's fun</dd>
-					<dt>Guitar 🎸</dt>
-					<dd>I love my guitar</dd>
-					<dt>Black Holes</dt>
-					<dd>It's kinda an obsession</dd>
-				</dl>
-			</SidebarCard>
-			<SidebarCard title="Languages">
-				<dl class="grid md:grid-cols-2">
-					<dt>German</dt>
-					<dd>Native</dd>
-					<dt>English</dt>
-					<dd>C2.1</dd>
-					<dt>Japanese</dt>
-					<dd>A1.1</dd>
-				</dl>
-			</SidebarCard>
-			<SidebarCard title="Programming Skills">
-				<dl class="grid md:grid-cols-1 gap-y-0.5 [&>*:nth-child(odd)]:font-bold [&>*:nth-child(odd)]:text-xl">
-					<dt>C-Family</dt>
-					<dd>C, C++, C#, dotnet, Java</dd>
-					<dt>Web</dt>
-					<dd>Html 5, CSS, tailwindcss, Asp.Net Core, Astro, React, Angular (17+)</dd>
-					<dt>Scripting</dt>
-					<dd>Python, Javascript, Lua (but am a bit rusty there)</dd>
-					<dt>Containerization</dt>
-					<dd>Docker, Docker compose</dd>
-				</dl>
-			</SidebarCard>
-			<SidebarCard title="PGP Key">
-				<details>
-					<summary class="list-none">
-						<span class="inline-flex gap-2 bg-secondary text-secondary-content p-2 w-32 hover:shadow-block hover:-hue-rotate-15 justify-center rounded-sm mb-3 cursor-pointer"
-							onclick="this.innerText = (this.innerText == 'Reveal' ? 'Hide' : 'Reveal')">
-							Reveal
-						</span>
-					</summary>
-
-					<div class="text-neutral-content p-2 overflow-x-auto bg-neutral border border-current rounded-sm">
-						<PgpKey/>
-					</div>
-				</details>
-			</SidebarCard>
-		</div>
-	</main>
+				<div class="text-neutral-content p-2 overflow-x-auto bg-neutral border border-current rounded-sm">
+					<PgpKey/>
+				</div>
+			</details>
+		</SidebarCard>
+	</Fragment>
 </Layout>
