@@ -7,6 +7,7 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
+    site: "https://miawinter.de",
     trailingSlash: "ignore",
     image: {
         remotePatterns: [{protocol: "https"}],
