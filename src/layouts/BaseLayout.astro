@@ -20,7 +20,10 @@ const { title, description } = Astro.props;
 		<meta name="author" content="Mia Rose Winter">
 		<meta name="description" content={description} />
 
-		<meta property="og:type" content="website" />
+		<slot name="head">
+			<meta property="og:type" content="website" />
+			<meta property="og:locale" content="en_us" />
+		</slot>
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 

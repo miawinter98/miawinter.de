@@ -7,8 +7,17 @@ const posts = (await getCollection('writing')).sort(
 );
 ---
 
-<ContentLayout title="Writing Excercises"
-            description="Little writing exercises and short stories I made. No guarantees for quality.">
+<ContentLayout title="Writing Excercises" description="Little writing exercises and short stories I made. No guarantees for quality.">
+    <Fragment slot="head">
+        <meta property="og:locale" content="en_us" />
+		<link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Mia Rose Winters Writing Exercises"
+            href={new URL("/writing/rss.xml", Astro.site)}
+        />
+    </Fragment>
+
     <main class="container p-4 mx-auto">
         <dl class="grid grid-cols-[auto_1fr] gap-x-2">
             {posts.map(post => (

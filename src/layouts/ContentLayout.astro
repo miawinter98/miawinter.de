@@ -15,6 +15,8 @@ const { title, description, header } = Astro.props;
 ---
 
 <Layout title={title} description={description} header={header}>
+    <slot name="head" slot="head" />
+
     <div class="bg-base-100 transition-colors ease-linear duration-300">
         <main class="prose font-prose container mx-auto max-w-3xl xl:max-w-5xl p-4 bg-base-200/20 text-base-content min-h-full">
             <h1>{ title }</h1>

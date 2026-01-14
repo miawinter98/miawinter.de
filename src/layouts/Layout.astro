@@ -12,6 +12,7 @@ const { title, description = "The personal webpage of Mia Rose Winter!", header 
 ---
 
 <BaseLayout title={title} description={description}>
+    <slot name="head" slot="head" />
     <Header>
         <span class="text-lg">
             {header ?? description}
