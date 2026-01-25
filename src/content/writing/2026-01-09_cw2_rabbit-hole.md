@@ -1,7 +1,7 @@
 ---
 title: "[CW02] Rabbit Hole"
 slug: 2026/01/09/cw-02-rabbit-hole
-date: 2025-01-09
+date: 2026-01-09
 description: "A short story that takes place in chapter five of \"Building a House of Roses\""
 ---
 

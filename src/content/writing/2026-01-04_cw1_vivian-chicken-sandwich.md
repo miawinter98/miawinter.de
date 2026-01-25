@@ -1,7 +1,7 @@
 ---
 title: "[CW01] Vivian has a Chicken Sandwich"
 slug: 2026/01/03/cw-01-vivian-chicken-sandwich
-date: 2025-01-03
+date: 2026-01-03
 description: "A short story about a chicken sandwich that turned existential"
 ---
 
