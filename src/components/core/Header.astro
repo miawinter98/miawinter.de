@@ -7,7 +7,7 @@ import {Image} from "astro:assets";
 const urlSegment = pathname.replaceAll('/', '');
 ---
 
-<header class="transition-colors ease-linear duration-300 bg-neutral text-neutral-content relative">
+<header class="bg-primary text-primary-content relative">
     <div class="p-4 md:px-12 flex flex-col items-center md:flex-row gap-8">
         <figure class="w-40 rounded-full overflow-hidden">
             <Image src={ProfilePicture} widths={[600, 200, ProfilePicture.width]}
@@ -24,17 +24,17 @@ const urlSegment = pathname.replaceAll('/', '');
 
     <nav role="navigation" class="text-lg" aria-label="Navigation">
         <ul class="flex justify-center w-full *:max-md:flex-1">
-            <li class:list={['flex border-b-4 w-40 text-center', {'border-secondary': (urlSegment.length < 1)}, {'border-transparent': (urlSegment.length >= 1)}]}>
+            <li class:list={['flex border-b-4 w-40 text-center', {'border-neutral': (urlSegment.length < 1)}, {'border-transparent': (urlSegment.length >= 1)}]}>
                 <a class="w-full h-full" href="/">
                     Home
                 </a>
             </li>
-            <li class:list={['flex border-b-4 w-40 text-center', {'border-secondary': urlSegment.endsWith('books')}, {'border-transparent': !urlSegment.endsWith('books')}]}>
+            <li class:list={['flex border-b-4 w-40 text-center', {'border-neutral': urlSegment.endsWith('books')}, {'border-transparent': !urlSegment.endsWith('books')}]}>
                 <a class="w-full h-full" href="/books">
                     Books
                 </a>
             </li>
-            <li class:list={['flex border-b-4 w-40 text-center', {'border-secondary': urlSegment.endsWith('writing')}, {'border-transparent': !urlSegment.endsWith('writing')}]}>
+            <li class:list={['flex border-b-4 w-40 text-center', {'border-neutral': urlSegment.endsWith('writing')}, {'border-transparent': !urlSegment.endsWith('writing')}]}>
                 <a class="w-full h-full" href="/writing">
                     Writing <span class="hidden sm:inline">Exercises</span>
                 </a>
@@ -42,8 +42,8 @@ const urlSegment = pathname.replaceAll('/', '');
         </ul>
     </nav>
 
-    <button id="ThemeToggle" type="button" aria-hidden="true"
-            class="absolute top-4 right-4 bg-primary text-primary-content p-2 rounded-full cursor-pointer"
+    <button id="ThemeToggle" type="button" aria-hidden="true" tabindex="-1"
+            class="bg-secondary text-secondary-content absolute top-4 right-4 p-2 rounded-full cursor-pointer"
             title="toggle website dark theme">
         <span class="dark:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">

@@ -1,24 +1,63 @@
 ---
 import CardLayout from "layouts/CardLayout.astro";
 import BookCard from "shared/BookCard.astro";
+import SidebarCard from "shared/SidebarCard.astro";
 ---
 
 <CardLayout title="Mia Rose Winter" cards="Books" header="Behold, all the cool stuff I have written.">
-    <div class="flex flex-col gap-y-4">
-        <BookCard title="Building a House of Roses"
-                    series="House of Roses"
-                    description="First chapter now available as preview while I'm working on finishing this book"
-                    genres={["Cyberpunk", "Romance", "Tragedy"]}>
-            <!-- synopsis here -->
+    <BookCard title="Building a House of Roses"
+                series="House of Roses"
+                description="First chapter now available as preview while I'm working on finishing this book"
+                genres={["Cyberpunk", "Romance", "Tragedy"]}>
+        <!-- synopsis here -->
 
-            <ul slot="footer">
+        <ul slot="footer">
+            <li>
+                <a class="underline"
+                    href="/books/Building a House of Roses/Building a House of Roses - First Chapter.pdf">
+                    Download Preview
+                </a>
+            </li>
+        </ul>
+    </BookCard>
+
+    <Fragment slot="aside">
+        <SidebarCard title="About">
+            <p class="my-3">
+                House of Roses is a (planned) post-cyberpunk universe I am working on. 
+            </p>
+            <ul>
                 <li>
-                    <a class="underline"
-                        href="/books/Building a House of Roses/Building a House of Roses - First Chapter.pdf">
-                        Download Preview
+                    <strong>Website</strong>: 
+                    <a class="inline-flex gap-1 underline hover:opacity-80" target="_blank" href="https://houseofroses.art">
+                        houseofroses.art
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <strong>Ko-fi</strong>:
+                    <a class="inline-flex gap-1 underline hover:opacity-80" target="_blank" href="https://ko-fi.com/miawinter">
+                        ko-fi.com/miawinter
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <strong>Patreon</strong>:
+                    <a class="inline-flex gap-1 underline hover:opacity-80" target="_blank" href="https://patreon.com/MiaRoseWinter">
+                        patreon.com/MiaRoseWinter
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75v-4a.75.75 0 0 1 1.5 0v4A2.25 2.25 0 0 1 12.75 17h-8.5A2.25 2.25 0 0 1 2 14.75v-8.5A2.25 2.25 0 0 1 4.25 4h5a.75.75 0 0 1 0 1.5h-5Z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 0 0 1.06.053L16.5 4.44v2.81a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.553l-9.056 8.194a.75.75 0 0 0-.053 1.06Z" clip-rule="evenodd" />
+                        </svg>
                     </a>
                 </li>
             </ul>
-        </BookCard>
-    </div>
+        </SidebarCard>
+    </Fragment>
 </CardLayout>

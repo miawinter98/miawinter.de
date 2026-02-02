@@ -36,7 +36,7 @@ const { title, description } = Astro.props;
 			localStorage.theme :
 			(window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light");
 	</script>
-	<body class="transition-colors ease-linear duration-300">
+	<body class="bg-neutral text-neutral-content">
 		<slot />
 	</body>
 </html>

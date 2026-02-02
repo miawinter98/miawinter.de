@@ -12,12 +12,13 @@ const { title, description, header, cards } = Astro.props;
 ---
 
 <Layout title={title} description={description} header={header}>
-    <main class="transition-colors ease-linear duration-300 grid grid-cols-1 lg:grid-cols-[1fr_auto] py-6 px-4 md:px-12 gap-8">
+    <main class="grid grid-cols-1 lg:grid-cols-[1fr_auto] py-6 px-4 md:px-12 gap-8">
 		<div class="flex flex-col gap-4">
-			<h1 class="text-2xl mb-3">{cards}</h1>
+            <h1 class="text-2xl lg:text-4xl mb-3">{cards}</h1>
             <slot/>
 		</div>
 		<div class="flex flex-col gap-4 lg:max-w-md xl:max-w-lg">
+            <span class="text-2xl lg:text-4xl mb-3">&nbsp;</span>
             <slot name="aside" />
 		</div>
 	</main>

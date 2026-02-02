@@ -24,7 +24,7 @@ import PgpKey from "core/PgpKey.astro";
 				description="Yep"
 				image="/src/assets/miawinter.de.png">
 		<CoolButton label="Recursion Error" url="https://miawinter.de" favicon="https://miawinter.de/favicon.png"
-					target="_self"/>
+					target="_self" eagerLoading={true} />
 	</ProjectCard>
 	
 	<Fragment slot="aside">
@@ -57,7 +57,7 @@ import PgpKey from "core/PgpKey.astro";
 				</li>
 				<li>
 					<a href='https://ko-fi.com/miawinter' rel="me" target='_blank'>
-						<Image loading="lazy" class="object-contain object-center max-width-full h-10"
+						<Image loading="eager" class="object-contain object-center max-width-full h-10"
 							src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' alt='Buy Me a Coffee at ko-fi.com'
 							inferSize={true}/>
 					</a>
@@ -107,13 +107,13 @@ import PgpKey from "core/PgpKey.astro";
 		<SidebarCard title="PGP Key">
 			<details>
 				<summary class="list-none">
-					<span class="inline-flex gap-2 bg-secondary text-secondary-content p-2 w-32 hover:shadow-block hover:-hue-rotate-15 justify-center rounded-sm mb-3 cursor-pointer"
+					<span class="inline-flex gap-2 bg-primary text-primary-content p-2 w-32 shadow-block hover:bg-primary/80 hover:text-primary-content hover:shadow-primary/50 transition-all duration-150 justify-center rounded-sm mb-3 cursor-pointer"
 						onclick="this.innerText = (this.innerText == 'Reveal' ? 'Hide' : 'Reveal')">
 						Reveal
 					</span>
 				</summary>
 
-				<div class="text-neutral-content p-2 overflow-x-auto bg-neutral border border-current rounded-sm">
+				<div class="bg-primary text-primary-content p-2 overflow-x-auto border border-current rounded-sm">
 					<PgpKey/>
 				</div>
 			</details>
