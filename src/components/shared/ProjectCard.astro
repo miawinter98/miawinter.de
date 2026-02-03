@@ -6,26 +6,29 @@ interface Props {
     title: string;
     tagLine: string;
     description: string;
-    image: string;
+    image?: string;
     eagerLoading?: boolean;
+    class2?: string;
 }
 
-const { title, tagLine, description, image, eagerLoading = false } = Astro.props;
+const { title, tagLine, description, image, class2 = "", eagerLoading = false } : Props = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,webp}')
-if (!images[image]) throw new Error(`"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,webp}"`);
+if (image && !images[image]) throw new Error(`"${image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,webp}"`);
 ---
 
-<article class="bg-accent text-accent-content flex shadow-block shadow-secondary h-80 rounded-sm overflow-hidden">
+<article class:list={["bg-accent text-accent-content flex shadow-block shadow-secondary h-80 rounded-sm overflow-hidden", class2]}>
     <div class="p-8 flex-1 flex flex-col bg-pattern-polka">
         <h2 class="text-xl mb-1">{title}</h2>
         <h3 class="text-lg line-clamp-2">{tagLine}</h3>
         <p class="my-3 flex-1 line-clamp-3">{description}</p>
         <slot />
     </div>
-
+{
+    image && 
     <div class="h-full max-w-90 relative">
         <div class="absolute inset-0 backdrop-blur-[2px] bg-accent opacity-40"> </div>
-        <Image class="object-cover object-left max-w-full h-full" src={images[image]()}
-               widths={[300, 600, 900, 1200]} alt="" loading={eagerLoading ? "eager" : "lazy"} />
+            <Image class="object-cover object-left max-w-full h-full" src={images[image]()}
+                            widths={[300, 600, 900, 1200]} alt="" loading={eagerLoading ? "eager" : "lazy"} />
     </div>
+}
 </article>
