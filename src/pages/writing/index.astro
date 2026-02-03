@@ -1,13 +1,16 @@
 ---
 import { getCollection } from "astro:content";
-import ContentLayout from "layouts/ContentLayout.astro";
+import CardLayout from "layouts/CardLayout.astro";
+import ProjectCard from "shared/ProjectCard.astro";
+import SidebarCard from "shared/SidebarCard.astro";
+import CoolButton from "shared/CoolButton.astro";
 
 const posts = (await getCollection('writing')).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
-<ContentLayout title="Writing Excercises" description="Little writing exercises and short stories I made. No guarantees for quality.">
+<CardLayout title="Writing Excercises" cards="Writing Exercises" description="Little writing exercises and short stories I made. No guarantees for quality.">
     <Fragment slot="head">
         <meta property="og:locale" content="en_us" />
 		<link
@@ -18,12 +21,20 @@ const posts = (await getCollection('writing')).sort(
         />
     </Fragment>
 
-    <main class="container p-4 mx-auto">
-        <dl class="grid grid-cols-[auto_1fr] gap-x-2">
-            {posts.map(post => (
-                <dt>{post.data.date.toLocaleDateString("en-GB", {})}</dt>
-                <dd><a href={`/writing/${post.id}`}>{post.data.title}</a></dd>
-            ))}
-        </dl>
-    </main>
-</ContentLayout>
+    {posts.map(post => (
+        <ProjectCard class2="!h-60" title={post.data.title}
+                     tagLine={post.data.date.toLocaleDateString("en-GB", {})}
+                     description={post.data.description}>
+            <CoolButton label="Read Now" url={`/writing/${post.id}`} target="_self" github={false} />
+        </ProjectCard>
+    ))}
+
+    <Fragment slot="aside">
+        <SidebarCard title="About">
+            <p class="my-3">
+                I try to write a short story or something similar every week to get better at writing, and so I have a 
+                little low-ish effort creative project to keep me happy :3
+            </p>
+        </SidebarCard>
+    </Fragment>
+</CardLayout>
