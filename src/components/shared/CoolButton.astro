@@ -16,7 +16,7 @@ const {label, favicon, url, target = "_blank", eagerLoading = false} = Astro.pro
    href={url} target={target}>
     {
         favicon ?
-                <Image class="size-6" src={favicon} alt="" inferSize={true}
+                <Image class="size-6" src={favicon} alt="" inferSize={true} layout="fixed"
                        loading={eagerLoading ? "eager" : "lazy"}/> :
                 <svg class="size-6" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg" aria-label="GitHub Icon">
                     <path fill-rule="evenodd" clip-rule="evenodd"

@@ -10,9 +10,7 @@ const urlSegment = pathname.replaceAll('/', '');
 <header class="bg-primary text-primary-content relative">
     <div class="p-4 md:px-12 flex flex-col items-center md:flex-row gap-8">
         <figure class="w-40 rounded-full overflow-hidden">
-            <Image src={ProfilePicture} widths={[600, 200, ProfilePicture.width]}
-                   alt="Mia Rose Winters current profile picture, likely a picrew"
-                   loading="eager"/>
+            <Image src={ProfilePicture} layout="constrained" alt="Mia Rose Winter" priority/>
         </figure>
 
         <div class="">
