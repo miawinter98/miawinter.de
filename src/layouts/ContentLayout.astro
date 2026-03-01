@@ -20,8 +20,10 @@ const { title, description, header } = Astro.props;
     <div>
         <main class="prose font-prose container mx-auto max-w-3xl xl:max-w-5xl p-4 bg-accent/10 min-h-full">
             <h1>{ title }</h1>
-            <hr class="border-primary -mx-2" />
+            <hr class="border-primary -mx-2 my-3" />
             <slot />
+            <hr class="border-primary -mx-2 mt-12 mb-24" />
+			<p class="text-center">{title}</p>
         </main>
     </div>
 </Layout>
