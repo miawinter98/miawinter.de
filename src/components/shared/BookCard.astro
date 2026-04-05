@@ -48,7 +48,7 @@ const { title, series, description, release, genres = [] } = Astro.props;
 
         <div class="bg-secondary text-secondary-content flex justify-between items-end h-16 p-4">
             <slot name="footer" />
-            <p class="text-end">
+            <p class="text-end whitespace-nowrap">
                 Release:
                 {
                     release &&  <time datetime={release}>
