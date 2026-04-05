@@ -11,11 +11,20 @@ import SidebarCard from "shared/SidebarCard.astro";
                 genres={["Cyberpunk", "Romance", "Tragedy"]}>
         <!-- synopsis here -->
 
-        <ul slot="footer">
+        <ul class="flex gap-x-4 flex-wrap" slot="footer">
+			<li class="max-md:hidden">
+				Download Preview
+			</li>
             <li>
                 <a class="underline"
                     href="/books/Building a House of Roses/Building a House of Roses - First Chapter v2.pdf">
-                    Download Preview
+                    PDF
+                </a>
+            </li>
+            <li>
+                <a class="underline"
+                    href="/books/Building a House of Roses/Building a House of Roses - First Chapter v2.epub">
+                    ePub
                 </a>
             </li>
         </ul>
