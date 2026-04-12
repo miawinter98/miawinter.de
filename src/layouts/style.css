@@ -87,7 +87,7 @@
         h1 + hr + h2 + p + h2 ~ p,
 		h2:only-of-type ~ p {
 			@apply my-3 text-pretty indent-8;
-			text-indent: 2em each-line;
+			text-indent: 1em each-line;
         }
         hr {
             @apply my-3;
