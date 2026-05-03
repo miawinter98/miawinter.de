@@ -99,6 +99,13 @@
                 @apply text-primary bg-primary-content;
             }
         }
+
+		p > code {
+			@apply bg-neutral text-neutral-content px-2;
+		}
+		pre:has(code) {
+			@apply bg-neutral! text-neutral-content! p-4 rounded-md border-neutral-content border;
+		}
     }
 
     :root {
