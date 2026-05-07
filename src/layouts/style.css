@@ -84,7 +84,7 @@
         h4 {
             @apply text-lg md:text-2xl;
         }
-        h1 + hr + h2 + p + h2 ~ p,
+        h1 + hr + div + h2 + p + h2 ~ p,
 		h2:only-of-type ~ p {
 			@apply my-3 text-pretty indent-8;
 			text-indent: 1em each-line;

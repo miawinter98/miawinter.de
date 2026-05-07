@@ -14,7 +14,13 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<ContentLayout title={post.data.title} description={post.data.description}>
+<ContentLayout 
+		title={post.data.title} 
+		description={post.data.description} 
+		jumpLink={post.data.first ? "/writing/" + post.data.first : null}
+		nextLink={post.data.next ? "/writing/" + post.data.next : null}
+		previousLink={post.data.previous ? "/writing/" + post.data.previous : null}
+		>
     <Fragment slot="head">
 		<link
             rel="alternate"

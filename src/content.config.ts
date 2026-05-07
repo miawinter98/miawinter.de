@@ -12,6 +12,9 @@ const writing = defineCollection({
         slug: z.string(),
         date: z.date(),
         description: z.string(),
+		first: z.string().optional(),
+		next: z.string().optional(),
+		previous: z.string().optional(),
     }),
 });
 

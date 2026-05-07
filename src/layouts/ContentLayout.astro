@@ -9,9 +9,13 @@ interface Props {
 	title: string;
 	description?: string;
 	header?: string;
+
+	jumpLink?: string;
+	nextLink?: string;
+	previousLink?: string;
 }
 
-const { title, description, header } = Astro.props;
+const { title, description, header, jumpLink, nextLink, previousLink } = Astro.props;
 ---
 
 <Layout title={title} description={description} header={header}>
@@ -21,8 +25,61 @@ const { title, description, header } = Astro.props;
         <main class="prose font-prose container mx-auto max-w-3xl xl:max-w-5xl p-4 bg-accent/10 min-h-full">
             <h1>{ title }</h1>
             <hr class="border-primary -mx-2 my-3" />
+			<div class="flex flex-wrap gap-1 not:empty:mb-3">
+			{
+				jumpLink &&
+				<a href={jumpLink} class="w-42 h-9 justify-center inline-flex pl-2 pr-4 py-1 items-center gap-1 border rounded-full whitespace-nowrap bg-primary text-primary-content no-underline hover:opacity-50">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+					</svg>
+					First Story
+				</a>
+			}
+			{
+				previousLink &&
+				<a href={previousLink} class="w-42 h-9 justify-center inline-flex pl-2 pr-4 py-1 items-center gap-1 border rounded-full whitespace-nowrap bg-primary text-primary-content no-underline hover:opacity-50">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+					</svg>
+					Previous Story
+				</a>
+			}
+			</div>
             <slot />
-            <hr class="border-primary -mx-2 mt-12 mb-24" />
+			<div class="flex flex-col md:flex-row items-center gap-2 mt-6">
+				{
+					previousLink ?
+					<a href={previousLink} class="w-full md:w-42 h-9 justify-center inline-flex pl-2 pr-4 py-1 items-center gap-1 border rounded-full whitespace-nowrap bg-primary text-primary-content no-underline hover:opacity-50">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+						</svg>
+						Previous Story
+					</a> : 
+					<div class="w-full md:w-42 h-9">&nbsp;</div>
+				}
+				{
+					jumpLink ?
+					<a href={jumpLink} class="w-full md:w-42 h-9 justify-center inline-flex pl-2 pr-4 py-1 items-center gap-1 border rounded-full whitespace-nowrap bg-primary text-primary-content no-underline hover:opacity-50">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+						</svg>
+						First Story
+					</a> :
+					<div class="w-full md:w-42 h-9">&nbsp;</div>
+				}
+				<div class="flex-1 hidden md:block"> &nbsp; </div>
+				{
+					nextLink ?
+					<a href={nextLink} class="w-full md:w-42 h-9 justify-center inline-flex pr-2 pl-4 py-1 items-center gap-1 border rounded-full whitespace-nowrap bg-primary text-primary-content no-underline hover:opacity-50">
+						Next Story
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+						</svg>
+					</a> : 
+					<div class="w-full md:w-42 h-9">&nbsp;</div>
+				}
+			</div>
+            <hr class="border-primary -mx-2 mt-4 mb-24" />
 			<p class="text-center">{title}</p>
         </main>
     </div>
