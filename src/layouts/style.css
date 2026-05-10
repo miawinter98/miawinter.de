@@ -99,6 +99,9 @@
                 @apply text-primary bg-primary-content;
             }
         }
+		ul {
+			@apply list-disc pl-12
+		}
 
 		p > code {
 			@apply bg-neutral text-neutral-content px-2;
