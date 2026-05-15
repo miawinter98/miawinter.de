@@ -1,11 +1,18 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "layouts/*": ["/src/layouts/*"],
-      "core/*": ["/src/components/core/*"],
-      "shared/*": ["/src/components/shared/*"]
-    }
-  }
+	"extends": "astro/tsconfigs/strict",
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": ["dist"],
+	"compilerOptions": {
+		"verbatimModuleSyntax": true,
+		"paths": {
+			"layouts/*": ["./src/layouts/*"],
+			"core/*": ["./src/components/core/*"],
+			"shared/*": ["./src/components/shared/*"]
+		},
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		]
+	}
 }

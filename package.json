@@ -1,24 +1,33 @@
 {
-  "name": "miawinter.de",
-  "private": true,
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/rss": "^4.0.14",
-    "@fontsource/atkinson-hyperlegible-next": "^5.2.7",
-    "@fontsource/josefin-sans": "^5.0.20",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.5",
-    "markdown-it": "^14.1.0",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.4.5"
-  }
+	"name": "miawinter.de",
+	"private": true,
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.6",
+		"@astrojs/rss": "^4.0.14",
+		"@astrojs/ts-plugin": "^1.10.8",
+		"@fontsource/atkinson-hyperlegible-next": "^5.2.7",
+		"@fontsource/josefin-sans": "^5.0.20",
+		"@tailwindcss/vite": "^4.1.18",
+		"astro": "^5.16.5",
+		"markdown-it": "^14.1.0",
+		"tailwindcss": "^4.1.18",
+		"typescript": "^5.4.5",
+		"vite": "^8.0.13"
+	},
+	"prettier": {
+		"tabWidth": 4,
+		"useTabs": true,
+		"trailingComma": "es5",
+		"semi": true,
+		"singleQuote": true
+	}
 }
